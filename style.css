@@ -1,0 +1,76 @@
+@charset "UTF-8";
+/*
+Theme Name: TP1 Alicia Sau
+Theme URI: https://wordpress.org/themes/twentytwenty/
+Author: Alicia Sau
+Author URI: https://github.com/Sau-Al
+Description: Thème développé dans le cadre du cours 4w4
+Tags: blog, one-column, custom-background, custom-colors, custom-logo, custom-menu, editor-style, featured-images, footer-widgets, full-width-template, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready, block-styles, wide-blocks, accessibility-ready
+Version: 1.0
+Requires at least: 6.0
+Tested up to: 5.3
+Requires PHP: 7.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: tp1-as
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+a {
+  color: #595;
+}
+
+body {
+  font-size: 16px;
+  font-family: "Courier New", Courier, monospace;
+}
+
+h1 {
+  font-size: clamp(2rem, 3vw, 5rem);
+}
+
+h2 {
+  font-size: clamp(1.5rem, 2.5vw, 3rem);
+}
+
+h3 {
+  font-size: clamp(1rem, 2vw, 2rem);
+}
+
+h4 {
+  font-size: clamp(0.9rem, 2vw, 1.5rem);
+}
+
+h5 {
+  font-size: clamp(0.8rem, 1.7vw, 1.2rem);
+}
+
+h6 {
+  font-size: clamp(0.8rem, 1.7vw, 5rem);
+}
+
+.menu {
+  background-color: aaa;
+}
+.menu ul {
+  margin: 0;
+  padding: 0;
+}
+.menu ul li {
+  display: inline-block;
+}
+
+.hero {
+  background-image: url("images/maldives.jpg");
+  min-height: 100vh;
+}
+
+.entete {
+  display: flex;
+  justify-content: space-between;
+}
+
+.global {
+  max-width: 1100px;
+  padding: 10vh 5vw;
+}/*# sourceMappingURL=style.css.map */
