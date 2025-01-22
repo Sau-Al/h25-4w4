@@ -22,7 +22,11 @@ a {
 
 body {
   font-size: 16px;
-  font-family: "Courier New", Courier, monospace;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+p {
+  font-weight: bold;
 }
 
 h1 {
@@ -63,6 +67,17 @@ h6 {
 .hero {
   background-image: url("images/maldives.jpg");
   min-height: 100vh;
+}
+
+button {
+  background-color: rgba(255, 255, 255, 0.5960784314); /* Green */
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 15%;
 }
 
 .entete {
