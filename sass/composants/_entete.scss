@@ -1,3 +1,9 @@
-img{
-    width: 20px;
+.logo__img{
+    width: 100px;
+}
+
+.entete__nav{
+    display: flex;
+    gap: 3rem;
+    align-items: center;
 }
