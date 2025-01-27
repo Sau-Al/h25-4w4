@@ -1,13 +1,19 @@
 .menu{
-    background-color: aaa;
-    ul{
-        margin:0;
-        padding: 0;
-        
-    li{
-        display: inline-block;
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+
+    &__li{
+
+        margin: 3px 0;
+
+        a{
+            padding: 4px;
+            text-decoration: none; 
+            color: grey;
+            font-weight: bold;
+        }
     }
-    }
-    }
+}
 
     

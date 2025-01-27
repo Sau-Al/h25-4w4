@@ -54,18 +54,24 @@ h6 {
 }
 
 .menu {
-  background-color: aaa;
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
 }
-.menu ul {
-  margin: 0;
-  padding: 0;
+.menu__li {
+  margin: 3px 0;
 }
-.menu ul li {
-  display: inline-block;
+.menu__li a {
+  padding: 4px;
+  text-decoration: none;
+  color: grey;
+  font-weight: bold;
 }
 
 .hero {
   background-image: url("images/maldives.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
   min-height: 100vh;
 }
 
@@ -78,6 +84,39 @@ button {
   display: inline-block;
   font-size: 16px;
   border-radius: 15%;
+}
+
+.logo__img {
+  width: 100px;
+}
+
+.entete__nav {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+}
+
+.recherche {
+  display: flex;
+  border: 1px solid black;
+}
+.recherche__input {
+  border: none;
+  outline: none;
+  background-color: rgba(0, 0, 0, 0.05);
+  flex: 1 0 auto;
+  padding: 3px;
+}
+.recherche__input:hover {
+  background-color: rgba(0, 0, 0, 0.09);
+}
+.recherche__input::placeholder {
+  color: rgb(0, 0, 0);
+  font-style: italic;
+}
+.recherche__img {
+  flex: 0 0 20px;
+  padding: 3px;
 }
 
 .entete {
