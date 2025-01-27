@@ -54,12 +54,16 @@ h6 {
 }
 
 .menu {
-  display: flex;
-  flex-direction: column;
   list-style-type: none;
 }
 .menu__li {
   margin: 3px 0;
+  display: flex;
+}
+@media screen and (max-width: 800px) {
+  .menu__li {
+    flex-direction: column;
+  }
 }
 .menu__li a {
   padding: 4px;
@@ -97,8 +101,28 @@ button {
 
 .entete__nav {
   display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
   gap: 3rem;
+  position: static;
+  background-color: transparent;
+  width: auto;
+}
+@media screen and (max-width: 800px) {
+  .entete__nav {
+    align-items: center;
+    background-color: white;
+    right: 0;
+    top: 0;
+    position: absolute;
+    flex-direction: column;
+    width: 100vw;
+  }
+}
+
+.entete {
   align-items: center;
+  width: auto;
 }
 
 .recherche {

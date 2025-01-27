@@ -4,6 +4,25 @@
 
 .entete__nav{
     display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
     gap: 3rem;
+    position: static;
+    background-color: transparent;
+    width: auto;
+    
+    @media screen and (max-width:800px) { 
     align-items: center;
+    background-color: white;
+    right: 0;
+    top: 0;
+    position: absolute;
+    flex-direction: column;
+    width: 100vw;
+    }
+}
+
+.entete{
+    align-items: center;
+    width: auto;
 }
