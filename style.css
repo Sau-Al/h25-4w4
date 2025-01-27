@@ -66,6 +66,7 @@ h6 {
   text-decoration: none;
   color: grey;
   font-weight: bold;
+  text-transform: uppercase;
 }
 
 .hero {
@@ -78,12 +79,16 @@ h6 {
 button {
   background-color: rgba(255, 255, 255, 0.5960784314); /* Green */
   border: none;
-  color: white;
+  color: rgb(0, 0, 0);
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
-  border-radius: 15%;
+  font-size: 2rem;
+  font-weight: bold;
+  border-radius: 25px;
+  height: 5rem;
+  margin: 15px 0;
+  padding: 0 2rem;
 }
 
 .logo__img {
@@ -124,7 +129,25 @@ button {
   justify-content: space-between;
 }
 
+.galerie {
+  display: flex;
+  flex-direction: column;
+}
+.galerie__img {
+  width: 15vw;
+  height: 20vh;
+  object-fit: cover;
+  padding: 0;
+  margin: 0;
+}
+
+.galerie__images {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: auto;
+}
+
 .global {
-  max-width: 1100px;
-  padding: 10vh 5vw;
+  padding: 10vh 2vw;
 }/*# sourceMappingURL=style.css.map */
