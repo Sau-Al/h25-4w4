@@ -5,17 +5,68 @@
     min-height: 100vh;
 }
 
-button{
+.hero__button{
     background-color: #ffffff98; /* Green */
     border: none;
     color: rgb(0, 0, 0);
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 2rem;
+    font-size: 1rem;
     font-weight: bold;
-    border-radius: 25px;
-    height: 5rem;
+    border-radius: 15px;
+    height: 3rem;
+    width: auto;
     margin: 15px 0;
     padding: 0 2rem;
   }
+
+  .hero__titre{
+    color: rgb(31, 31, 31);
+    text-shadow: 2px 2px 8px #00b9e7ac;
+  }
+
+  .hero__description{
+    width: 40vw;
+  }
+
+
+.hero__form{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+        box-shadow: 10px 10px 5px rgba(34, 42, 45, 0.495);
+    width: 75vw;
+    height: 100px;
+    top: -5vh;
+}
+
+.form__principale{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+form{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    gap: 2rem;
+}
+
+.form__input{
+    border: 2px solid rgb(38, 186, 255);
+    height: 2rem;
+}
+
+.form__button{
+    width: 201px;
+    height: 36px;
+    margin-top: 18px;
+    border: 2px solid rgb(38, 186, 255);
+}
