@@ -4,6 +4,7 @@
     &__li{
 
         margin: 3px 0;
+        gap: 1rem;
 
         @media screen and (max-width:800px){flex-direction: column;}
         display: flex;
