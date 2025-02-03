@@ -1,3 +1,5 @@
+// Entete
+// Logo
 .logo__img{
     width: 100px;
 
@@ -6,31 +8,33 @@
     }
 }
 
-.entete__nav{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    gap: 3rem;
-    position: static;
-    background-color: transparent;
-    width: auto;
-    
-    // Version mobile (petit écran)
-    @media screen and (max-width:800px) { 
-    align-items: center;
-    right: 0;
-    top: 0;
-    position: absolute;
-    flex-direction: column;
-    width: 100vw;
-    }
-}
-
 .entete{
     align-items: center;
     width: auto;
+
+    &__nav{
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        flex-direction: row;
+        gap: 3rem;
+        position: static;
+        background-color: transparent;
+        width: auto;
+
+        // Version mobile (petit écran)
+        @media screen and (max-width:800px) { 
+        align-items: center;
+        right: 0;
+        top: 0;
+        position: absolute;
+        flex-direction: column;
+        width: 100vw;
+        }
+    }
 }
 
+// Figures
 @media screen and (max-width:800px){
     figure{
         margin: 2px;
