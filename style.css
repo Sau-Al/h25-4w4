@@ -17,7 +17,7 @@ This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
 a {
-  color: #595;
+  color: rgb(0, 0, 0);
 }
 
 body {
@@ -72,8 +72,52 @@ h6 {
   color: grey;
   font-weight: bold;
   text-transform: uppercase;
+  font-size: small;
 }
 
+@media screen and (max-width: 800px) {
+  #chk__burger {
+    display: none;
+  }
+  /* Opérateur de sélection "~" permet de sélectionner l'élément suivant */
+  #chk__burger:checked ~ .entete__menu {
+    background-color: rgb(255, 255, 255);
+    transform: translateY(0);
+    top: 50px;
+  }
+  #chk__burger:checked ~ .menu__li {
+    display: initial;
+  }
+  .entete__menu {
+    display: flex;
+    position: absolute;
+    top: 100%;
+    width: 100vw;
+    justify-content: center;
+    transform: translateY(-200%);
+    transition: transform 1s;
+  }
+  #burger {
+    display: flex;
+    align-items: center;
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    margin-left: auto;
+  }
+  #burger img {
+    display: block;
+  }
+}
+@media only screen and (min-width: 992px) {
+  #chk__burger {
+    display: none;
+  }
+  #burger {
+    display: none;
+  }
+}
 .hero {
   background-image: url("images/maldives.jpg");
   background-repeat: no-repeat;
@@ -146,8 +190,18 @@ form {
   border: 2px solid rgb(38, 186, 255);
 }
 
+@media screen and (max-width: 800px) {
+  .hero__form {
+    display: none;
+  }
+}
 .logo__img {
   width: 100px;
+}
+@media screen and (max-width: 800px) {
+  .logo__img {
+    width: 50px;
+  }
 }
 
 .entete__nav {
@@ -162,7 +216,6 @@ form {
 @media screen and (max-width: 800px) {
   .entete__nav {
     align-items: center;
-    background-color: white;
     right: 0;
     top: 0;
     position: absolute;
@@ -176,6 +229,11 @@ form {
   width: auto;
 }
 
+@media screen and (max-width: 800px) {
+  figure {
+    margin: 2px;
+  }
+}
 .recherche {
   display: flex;
   border: 1px solid black;
@@ -197,6 +255,11 @@ form {
 .recherche__img {
   flex: 0 0 20px;
   padding: 3px;
+}
+@media screen and (max-width: 800px) {
+  .recherche {
+    display: none;
+  }
 }
 
 .entete {
