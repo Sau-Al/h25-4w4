@@ -1,5 +1,9 @@
 .logo__img{
     width: 100px;
+
+    @media screen and (max-width:800px){
+        width: 50px;
+    }
 }
 
 .entete__nav{
@@ -11,9 +15,9 @@
     background-color: transparent;
     width: auto;
     
+    // Version mobile (petit écran)
     @media screen and (max-width:800px) { 
     align-items: center;
-    background-color: white;
     right: 0;
     top: 0;
     position: absolute;
@@ -25,4 +29,10 @@
 .entete{
     align-items: center;
     width: auto;
+}
+
+@media screen and (max-width:800px){
+    figure{
+        margin: 2px;
+    }
 }

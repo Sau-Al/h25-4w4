@@ -21,4 +21,9 @@
         flex: 0 0 20px;
         padding: 3px;
     }
+
+    // Écran mobile
+    @media screen and (max-width:800px){
+        display: none;
+    }
 }

@@ -70,3 +70,10 @@ form{
     margin-top: 18px;
     border: 2px solid rgb(38, 186, 255);
 }
+
+// Version mobile
+@media screen and (max-width:800px){
+    .hero__form{
+        display: none;
+    }
+}
