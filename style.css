@@ -1,0 +1,294 @@
+/*
+Theme Name: theme_4w4
+Theme URI: https://referenced.ca
+Author: Alicia Sau
+Author URI: https://github.com/eddytuto
+Description: Thème de base développer dans le cadre du cours de Worpress
+Version: 1.0
+Tested up to: 6.2
+Requires PHP: 7.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: theme_4w4
+*/
+@charset "UTF-8";
+
+a {
+  color: rgb(0, 0, 0);
+}
+
+body {
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+p {
+  font-weight: bold;
+}
+
+h1 {
+  font-size: clamp(2rem, 3vw, 5rem);
+}
+
+h2 {
+  font-size: clamp(1.5rem, 2.5vw, 3rem);
+}
+
+h3 {
+  font-size: clamp(1rem, 2vw, 2rem);
+}
+
+h4 {
+  font-size: clamp(0.9rem, 2vw, 1.5rem);
+}
+
+h5 {
+  font-size: clamp(0.8rem, 1.7vw, 1.2rem);
+}
+
+h6 {
+  font-size: clamp(0.8rem, 1.7vw, 5rem);
+}
+
+.menu {
+  list-style-type: none;
+}
+.menu__li {
+  margin: 3px 0;
+  gap: 1rem;
+  display: flex;
+}
+@media screen and (max-width: 800px) {
+  .menu__li {
+    flex-direction: column;
+  }
+}
+.menu__li a {
+  padding: 4px;
+  text-decoration: none;
+  color: grey;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: small;
+}
+
+@media screen and (max-width: 800px) {
+  #chk__burger {
+    display: none;
+  }
+  /* Opérateur de sélection "~" permet de sélectionner l'élément suivant */
+  #chk__burger:checked ~ .entete__menu {
+    background-color: rgb(255, 255, 255);
+    transform: translateY(0);
+    top: 50px;
+  }
+  #chk__burger:checked ~ .menu__li {
+    display: initial;
+  }
+  .entete__menu {
+    display: flex;
+    position: absolute;
+    top: 100%;
+    width: 100vw;
+    justify-content: center;
+    transform: translateY(-200%);
+    transition: transform 1s;
+  }
+  #burger {
+    display: flex;
+    align-items: center;
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    margin-left: auto;
+  }
+  #burger img {
+    display: block;
+  }
+}
+@media only screen and (min-width: 992px) {
+  #chk__burger {
+    display: none;
+  }
+  #burger {
+    display: none;
+  }
+}
+.hero {
+  background-image: url("images/maldives.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+}
+
+.hero__button {
+  background-color: rgba(255, 255, 255, 0.5960784314); /* Green */
+  border: none;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 15px;
+  height: 3rem;
+  width: auto;
+  margin: 15px 0;
+  padding: 0 2rem;
+}
+
+.hero__titre {
+  color: rgb(31, 31, 31);
+  text-shadow: 2px 2px 8px rgba(0, 185, 231, 0.6745098039);
+}
+
+.hero__description {
+  width: 40vw;
+}
+
+.hero__form {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 10px 10px 5px rgba(34, 42, 45, 0.495);
+  width: 75vw;
+  height: 100px;
+  top: -5vh;
+}
+
+.form__principale {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  gap: 2rem;
+}
+
+.form__input {
+  border: 2px solid rgb(38, 186, 255);
+  height: 2rem;
+}
+
+.form__button {
+  width: 201px;
+  height: 36px;
+  margin-top: 18px;
+  border: 2px solid rgb(38, 186, 255);
+}
+
+@media screen and (max-width: 800px) {
+  .hero__form {
+    display: none;
+  }
+}
+.logo__img {
+  width: 100px;
+}
+@media screen and (max-width: 800px) {
+  .logo__img {
+    width: 50px;
+  }
+}
+
+.entete {
+  align-items: center;
+  width: auto;
+}
+.entete__nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 3rem;
+  position: static;
+  background-color: transparent;
+  width: auto;
+}
+@media screen and (max-width: 800px) {
+  .entete__nav {
+    align-items: center;
+    right: 0;
+    top: 0;
+    position: absolute;
+    flex-direction: column;
+    width: 100vw;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  figure {
+    margin: 2px;
+  }
+}
+.recherche {
+  display: flex;
+  border: 1px solid black;
+  height: 2rem;
+}
+.recherche__input {
+  border: none;
+  outline: none;
+  background-color: rgba(0, 0, 0, 0.05);
+  flex: 1 0 auto;
+  padding: 3px;
+}
+.recherche__input:hover {
+  background-color: rgba(0, 0, 0, 0.09);
+}
+.recherche__input::placeholder {
+  color: rgb(0, 0, 0);
+  font-style: italic;
+}
+.recherche__img {
+  flex: 0 0 20px;
+  padding: 3px;
+}
+@media screen and (max-width: 800px) {
+  .recherche {
+    display: none;
+  }
+}
+
+.entete {
+  display: flex;
+  justify-content: space-between;
+}
+
+.galerie {
+  display: flex;
+  flex-direction: column;
+}
+.galerie__img {
+  width: 18vw;
+  height: 30vh;
+  object-fit: cover;
+  padding: 0;
+  margin: 0;
+}
+
+.galerie__images {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: auto;
+}
+
+.galerie__figure {
+  padding: 2px;
+  margin: 2px;
+}
+
+.global {
+  padding: 10vh 2vw;
+}/*# sourceMappingURL=style.css.map */
