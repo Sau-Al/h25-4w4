@@ -1,0 +1,30 @@
+.recherche{
+    display: flex;
+    border: 1px solid black;
+    height: 2rem;
+
+    &__input{
+        border: none;
+        outline: none;
+        background-color: rgba(0,0,0,.05);
+        flex: 1 0 auto;
+        padding: 3px;
+        &:hover{
+            background-color: rgba(0,0,0,.09);
+        }
+        &::placeholder{
+            color: rgba(0,0,.2);
+            font-style: italic;
+        }
+    }
+
+    &__img{
+        flex: 0 0 20px;
+        padding: 3px;
+    }
+
+    // Écran mobile
+    @media screen and (max-width:800px){
+        display: none;
+    }
+}

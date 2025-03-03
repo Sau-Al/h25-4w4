@@ -1,18 +1,21 @@
+@charset "UTF-8";
 /*
-Theme Name: theme_4w4
-Theme URI: https://referenced.ca
+Theme Name: TP1 Alicia Sau
+Theme URI: https://wordpress.org/themes/twentytwenty/
 Author: Alicia Sau
-Author URI: https://github.com/eddytuto
-Description: Thème de base développer dans le cadre du cours de Worpress
+Author URI: https://github.com/Sau-Al
+Description: Thème développé dans le cadre du cours 4w4
+Tags: blog, one-column, custom-background, custom-colors, custom-logo, custom-menu, editor-style, featured-images, footer-widgets, full-width-template, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready, block-styles, wide-blocks, accessibility-ready
 Version: 1.0
-Tested up to: 6.2
+Requires at least: 6.0
+Tested up to: 5.3
 Requires PHP: 7.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: theme_4w4
+Text Domain: tp1-as
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
 */
-@charset "UTF-8";
-
 a {
   color: rgb(0, 0, 0);
 }
@@ -53,17 +56,17 @@ h6 {
 .menu {
   list-style-type: none;
 }
-.menu__li {
+.menu-item {
   margin: 3px 0;
   gap: 1rem;
   display: flex;
 }
 @media screen and (max-width: 800px) {
-  .menu__li {
+  .menu-item {
     flex-direction: column;
   }
 }
-.menu__li a {
+.menu-item a {
   padding: 4px;
   text-decoration: none;
   color: grey;
@@ -260,6 +263,23 @@ form {
   }
 }
 
+.carte {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.carte--grande {
+  flex: 1 1 250px;
+}
+.carte__image img {
+  width: 100%;
+}
+.carte__contenu {
+  background-color: aliceblue;
+}
+.carte__titre {
+  font-size: clamp;
+}
 .entete {
   display: flex;
   justify-content: space-between;
@@ -291,4 +311,32 @@ form {
 
 .global {
   padding: 10vh 2vw;
+}
+
+footer {
+  background-color: rgb(111, 161, 204);
+  color: wheat;
+}
+
+.piedpage {
+  display: flex;
+  flex-direction: column;
+}
+.piedpage__s1 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+}
+.piedpage__s1__externe {
+  flex: 0 0 20%;
+}
+.piedpage__s1__externe .menu {
+  display: flex;
+  flex-direction: column;
+}
+.piedpage__s1__adresse {
+  flex: 0 0 40%;
+}
+.piedpage__s1__description {
+  flex: 1 0 400px;
 }/*# sourceMappingURL=style.css.map */

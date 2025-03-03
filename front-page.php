@@ -1,10 +1,8 @@
     <?php get_header(); ?>
-    <h1>----------FRONT-PAGE.PHP------------</h1>
     <section class="hero">
         <div class="hero__contenu  global">
-            <h1 class="hero__titre">Voyager autremement avec Fly High!</h1>
-            <p class="hero__description">Découvrez des destinations uniques et inoubliables avec Air Miles. Nous vous offrons des expériences authentiques,
-                des paysages à couper le souffle eet des aventures sur mesure. Partez à la découverte du monde avec nous et créez des souvenirs impérissables.
+            <h1 class="hero__titre"><?php bloginfo('name'); ?></h1>
+            <p class="hero__description"><?php bloginfo('description'); ?>
             </p>
             <p class="hero__courriel">
                 <a href="#">info@cmaisonneuve.qc.ca</a>
@@ -49,7 +47,7 @@
     <section class="galerie">
         <div class="galerie global">
             <h2>Nos destinations préférées</h2>
-            <div class="galerie__images">
+            <!-- <div class="galerie__images">
                 <figure class="galerie__figure">
                 <img src="images/france.jpg" alt="" class="galerie__img">
                 </figure>
@@ -80,19 +78,24 @@
                 <figure class="galerie__figure">
                 <img src="images/japon.jpeg" alt="" class="galerie__img">
                 </figure>
-            </div>
+            </div> -->
             
         </div>
 </section>
 <section class="populaire">
 <div class="global">
-            <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-                <article>
-                    <h2><?php the_title(); ?></h2>
-                    <div><?php echo wp_trim_words(get_the_content(), 10, " ... "); ?></div>
-                </article>
+            <?php if (have_posts()) : while (have_posts()) : the_post();
+            if (in_category("galerie")) {
+                the_content();
+            } else {
+ 
+            ?>
+               <?php get_template_part("gabarit/carte");?>
+            <?php } ?>
             <?php endwhile; endif; ?>
         </div>
 </section>
+<footer></footer>
+<?php get_footer(); ?>
 </body>
 </html>
