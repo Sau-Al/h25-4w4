@@ -55,6 +55,8 @@ h6 {
 
 .menu {
   list-style-type: none;
+  display: flex;
+  flex-direction: row;
 }
 .menu-item {
   margin: 3px 0;
@@ -283,6 +285,12 @@ form {
 .carte__contenu {
   background-color: #bbdfff;
 }
+.piedpage__s2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .entete {
   display: flex;
   justify-content: space-between;

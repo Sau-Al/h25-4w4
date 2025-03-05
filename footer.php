@@ -26,15 +26,20 @@
         </section>
     </div>
     <section class="piedpage__s2">
-        <!-- Logo des réseaux sociaux -->
+        <div class="sociaux">
+            <!-- Logo des réseaux sociaux -->
         <img src="https://s2.svgbox.net/materialui.svg?ic=facebook" width="20" alt="facebook">
         <img src="https://s2.svgbox.net/social.svg?ic=linkedin" width="20" alt="linkedin">
         <img src="https://s2.svgbox.net/social.svg?ic=discord" width="20" alt="discord">
-        <!-- Menu des catégories -->
+        </div>
+        <div class="menu__footer">
+            <!-- Menu des catégories -->
         <?php wp_nav_menu(array(
                     "menu" => "principal",
                     "container" => "div"
                 )); ?>
+        </div>
+        
     </section>
 </footer>
 <?php wp_footer() ?>
