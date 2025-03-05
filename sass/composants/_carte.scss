@@ -1,31 +1,35 @@
-.carte{
+.cartes{
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.carte{
+    display : flex;
     flex-direction: column;
     justify-content: space-between;
-    &--grande{
-        flex:1 1 250px;
-    }
 
-    &__image{
-        img{
-            width: 100%;
-        }
-    }
+    width: 450px;
+   &--grande{
+   } 
+   &__image{
 
-    &__contenu{
-       background-color: aliceblue;
+    img{
+        width : 100%;
     }
+   }
+   &__contenu{
+       background-color: #bbdfff; 
+   }
+   &__titre{
+    
+   }
+   &__description{}
+   &__bouton{
+    &--actif{}
+   }
 
-    &__titre{
-        font-size: clamp ;
-    }
-
-    &__description{
-
-    }
-
-    &__button{
-        &--actif{}
-    }
 
 }

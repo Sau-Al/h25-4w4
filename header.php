@@ -29,10 +29,6 @@
                     "container_class" => "entete__menu"
                 )); ?>
                 <?php get_search_form(); ?>
-                <form class="recherche">
-                    <input type="search" class="recherche__input" placeholder="Recherche...">
-                    <img class="recherche__img" src="https://s2.svgbox.net/hero-outline.svg?ic=search" width="20" alt="">
-                </form>
             </div>
         </div>
     </header>

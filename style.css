@@ -263,22 +263,25 @@ form {
   }
 }
 
+.cartes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
 .carte {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-}
-.carte--grande {
-  flex: 1 1 250px;
+  width: 450px;
 }
 .carte__image img {
   width: 100%;
 }
 .carte__contenu {
-  background-color: aliceblue;
-}
-.carte__titre {
-  font-size: clamp;
+  background-color: #bbdfff;
 }
 .entete {
   display: flex;

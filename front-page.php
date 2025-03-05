@@ -5,7 +5,7 @@
             <p class="hero__description"><?php bloginfo('description'); ?>
             </p>
             <p class="hero__courriel">
-                <a href="#">info@cmaisonneuve.qc.ca</a>
+                <a href="#"><?php bloginfo('admin_email'); ?></a>
             </p>
             <p class="hero__adresse">5800 Sherbrooke-est - Montréal (Québec) h1X 2A2</p>
             <p class="hero__numero">514-254-7131</p>
@@ -47,39 +47,6 @@
     <section class="galerie">
         <div class="galerie global">
             <h2>Nos destinations préférées</h2>
-            <!-- <div class="galerie__images">
-                <figure class="galerie__figure">
-                <img src="images/france.jpg" alt="" class="galerie__img">
-                </figure>
-                <figure class="galerie__figure">
-                <img src="images/japon.jpg" alt="" class="galerie__img">
-                </figure>
-                <figure class="galerie__figure">
-                <img src="images/kayak.avif" alt="" class="galerie__img">
-                </figure>
-                <figure class="galerie__figure">
-                <img src="images/malta.jpg" alt="" class="galerie__img">
-                </figure>
-                <figure class="galerie__figure">
-                <img src="images/plage_nuit.jpg" alt="" class="galerie__img">
-                </figure>
-                <figure class="galerie__figure">
-                <img src="images/chine.png" alt="" class="galerie__img">
-                </figure>
-                <figure class="galerie__figure">
-                <img src="images/plage.jpg" alt="" class="galerie__img">
-                </figure>
-                <figure class="galerie__figure">
-                <img src="images/vietnam.jpg" alt="" class="galerie__img">
-                </figure>
-                <figure class="galerie__figure">
-                <img src="images/montagnes.jpeg" alt="" class="galerie__img">
-                </figure>
-                <figure class="galerie__figure">
-                <img src="images/japon.jpeg" alt="" class="galerie__img">
-                </figure>
-            </div> -->
-            
         </div>
 </section>
 <section class="populaire">
@@ -88,11 +55,12 @@
             if (in_category("galerie")) {
                 the_content();
             } else {
- 
             ?>
-               <?php get_template_part("gabarit/carte");?>
-            <?php } ?>
-            <?php endwhile; endif; ?>
+            <div class="cartes">
+                <?php get_template_part("gabarit/carte");?>
+                <?php } ?>
+                <?php endwhile; endif; ?>
+            </div>
         </div>
 </section>
 <footer></footer>
