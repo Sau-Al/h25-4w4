@@ -1,5 +1,6 @@
 <footer>
     <div class="piedpage global">
+        <!-- Liens externes -->
         <section class="piedpage__s1">
         <div class="piedpage__s1__externe">
         <h3>Liste sur les voyages</h3>
@@ -9,16 +10,17 @@
         )); ?>
         </div>
         <div class="piedpage__s1__adresse">
+        <!-- L'adresse et la barre de recherche  -->
         <h3>Adresse et recherche</h3>
         <div class="piedpage__s1__adresse_coord">
         5800 Sherbrooke-est - Montréal (Québec) h1X 2A2
         514-254-7131
         </div>
         <div class="piedpage__s1__adresse_recherche">
+        <!-- Barre de recherche -->
         <?php get_search_form(); ?>
         </div>
         </div>
-    
         <div class="piedpage__s1__description">
         <h3>Mission du club</h3>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam quod exercitationem quae ea incidunt quaerat provident alias voluptas sapiente eos dolores, reprehenderit iusto maiores odit commodi, eius cumque odio? Tenetur?

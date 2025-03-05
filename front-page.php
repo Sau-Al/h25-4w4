@@ -13,6 +13,7 @@
                 S'inscrire
             </button>
             <div class="hero__sociaux">
+                <!-- Les émoticons des réseaux sociaux -->
                 <img src="https://s2.svgbox.net/materialui.svg?ic=facebook" width="20" alt="facebook">
                 <img src="https://s2.svgbox.net/social.svg?ic=linkedin" width="20" alt="linkedin">
                 <img src="https://s2.svgbox.net/social.svg?ic=discord" width="20" alt="discord">
@@ -51,12 +52,14 @@
 </section>
 <section class="populaire">
 <div class="global">
+    <!-- La galerie -->
             <?php if (have_posts()) : while (have_posts()) : the_post();
             if (in_category("galerie")) {
                 the_content();
             } else {
             ?>
             <div class="cartes">
+                <!-- Les cartes -->
                 <?php get_template_part("gabarit/carte");?>
                 <?php } ?>
                 <?php endwhile; endif; ?>
