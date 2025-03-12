@@ -1,8 +1,8 @@
 <?php
 
-// ✅ Couleur principale
+// Couleur principale
 function theme_tp_customize_options($wp_customize) {
-    // ✅ Ajout de la couleur principale dans la section "contact_section"
+    // Ajout de la couleur principale dans la section "contact_section"
     $wp_customize->add_setting('main_color', array(
         'default'           => '#ff0000', // Valeur par défaut : rouge
         'sanitize_callback' => 'sanitize_hex_color',
@@ -13,6 +13,6 @@ function theme_tp_customize_options($wp_customize) {
     )));
 }
 
-// ✅ Ajout de l'action dans le hook `customize_register`
+// Ajout de l'action dans le hook `customize_register`
 add_action('customize_register', 'theme_tp_customize_options');
 

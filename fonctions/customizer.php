@@ -66,7 +66,7 @@ function theme_tp_customize_register($wp_customize) {
     'priority' => 35,
   ));
   
-  // ✅ Couleur principale
+  // Couleur principale
   $wp_customize->add_setting('main_color', array(
     'default'           => '#ff0000', // Rouge par défaut
     'sanitize_callback' => 'sanitize_hex_color',
@@ -76,7 +76,7 @@ function theme_tp_customize_register($wp_customize) {
     'section' => 'contact_section',
   )));
   
-  // ✅ Mission
+  // Mission
   $wp_customize->add_setting('mission_text', array(
     'default'           => __('Notre mission est de...', 'theme_tp'),
     'sanitize_callback' => 'sanitize_text_field',
@@ -87,7 +87,7 @@ function theme_tp_customize_register($wp_customize) {
     'type'    => 'textarea',
   ));
   
-  // ✅ Adresse
+  // Adresse
   $wp_customize->add_setting('contact_address', array(
     'default'           => __('5800 Sherbrooke-est - Montréal (Québec) H1X 2A2', 'theme_tp'),
     'sanitize_callback' => 'sanitize_text_field',
@@ -98,7 +98,7 @@ function theme_tp_customize_register($wp_customize) {
     'type'    => 'text',
   ));
   
-  // ✅ Téléphone
+  // Téléphone
   $wp_customize->add_setting('contact_phone', array(
     'default'           => __('514-254-7131', 'theme_tp'),
     'sanitize_callback' => 'sanitize_text_field',
@@ -109,6 +109,6 @@ function theme_tp_customize_register($wp_customize) {
     'type'    => 'text',
   ));
   }
-  
-// ✅ Ajout de l'action dans le hook `customize_register`
+
+// Ajout de l'action dans le hook `customize_register`
 add_action('customize_register', 'theme_tp_customize_register');

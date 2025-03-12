@@ -1,3 +1,4 @@
+<!-- Secion HERO -->
 <?php 
 $hero_auteur = get_theme_mod('hero_auteur', 'Default Title');
 $hero_background = get_theme_mod('hero_background', ''); 

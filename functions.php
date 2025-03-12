@@ -1,15 +1,15 @@
 <?php
 
-// ✅ Chemin vers le dossier functions
+// Chemin vers le dossier functions
 $functions_dir = get_template_directory() . '/functions/';
 
-// ✅ Liste des fichiers à inclure
+// Liste des fichiers à inclure
 $function_files = array(
     'customizer.php', // Code lié au customizer
     'options.php',    // Code lié aux options du thème
 );
 
-// ✅ Boucle pour inclure tous les fichiers automatiquement
+// Boucle pour inclure tous les fichiers automatiquement
 foreach ($function_files as $file) {
     $file_path = $functions_dir . $file;
     if (file_exists($file_path)) {
