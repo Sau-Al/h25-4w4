@@ -28,6 +28,28 @@ $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'hero_b
   'label' => __('Image en arrière plan', 'theme_tp'),
   'section' => 'hero_section',
 )));
+/////////////////////////////// ajout de la donnée du bouton CTA
+$wp_customize->add_setting('hero_cta_text', array(
+  'default' => __('Learn More', 'theme_tp'),
+  'sanitize_callback' => 'sanitize_text_field',
+));
+/////////////////////////////// ajout du contrôle de la donnée
+$wp_customize->add_control('hero_cta_text', array(
+  'label' => __('CTA Button Text', 'theme_tp'),
+  'section' => 'hero_section',
+  'type' => 'text',
+));
+/////////////////////////////// Lien du bouton CTA
+$wp_customize->add_setting('hero_cta_link', array(
+  'default' => '#',
+  'sanitize_callback' => 'esc_url_raw',
+));
+/////////////////////////////// ajout du contrôle de la donnée
+$wp_customize->add_control('hero_cta_link', array(
+  'label' => __('CTA Button Link', 'theme_tp'),
+  'section' => 'hero_section',
+  'type' => 'url',
+));
 
 }
 

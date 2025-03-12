@@ -2,6 +2,8 @@
     <?php 
     $hero_auteur = get_theme_mod('hero_auteur', 'Default Title');
     $hero_background = get_theme_mod('hero_background', ''); 
+    $hero_cta_text = get_theme_mod('hero_cta_text', 'Default CTA');
+    $hero_cta_link = get_theme_mod('hero_cta_link', '#');
     ?>
     <section class="hero" style="background-image: url(<?php echo $hero_background?>)">
         <div class="hero__contenu  global">
@@ -15,7 +17,7 @@
             <p class="hero__numero">514-254-7131</p>
             <p class="hero_auteur">Auteur: <?php echo $hero_auteur?></p>
             <button class="hero__button">
-                S'inscrire
+            <?php echo $hero_cta_text?> 
             </button>
             <div class="hero__sociaux">
                 <!-- Les émoticons des réseaux sociaux -->
