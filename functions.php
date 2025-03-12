@@ -50,7 +50,65 @@ $wp_customize->add_control('hero_cta_link', array(
   'section' => 'hero_section',
   'type' => 'url',
 ));
+// Couleur principale
+$wp_customize->add_setting('main_color', array(
+  'default'           => '#ff0000', // Valeur par défaut : rouge
+  'sanitize_callback' => 'sanitize_hex_color',
+));
+/////////////////////////////// ajout du contrôle de la donnée
+$wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'main_color', array(
+  'label'   => __('Couleur principale', 'theme_tp'),
+  'section' => 'contact_section',
+)));
 
+// Nouvelle section pour les contacts
+$wp_customize->add_section('contact_section', array(
+  'title'    => __('Informations de contact', 'theme_tp'),
+  'priority' => 35,
+));
+
+// ✅ Couleur principale
+$wp_customize->add_setting('main_color', array(
+  'default'           => '#ff0000', // Rouge par défaut
+  'sanitize_callback' => 'sanitize_hex_color',
+));
+$wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'main_color', array(
+  'label'   => __('Couleur principale', 'theme_tp'),
+  'section' => 'contact_section',
+)));
+
+// ✅ Mission
+$wp_customize->add_setting('mission_text', array(
+  'default'           => __('Notre mission est de...', 'theme_tp'),
+  'sanitize_callback' => 'sanitize_text_field',
+));
+$wp_customize->add_control('mission_text', array(
+  'label'   => __('Mission', 'theme_tp'),
+  'section' => 'contact_section',
+  'type'    => 'textarea',
+));
+
+// ✅ Adresse
+$wp_customize->add_setting('contact_address', array(
+  'default'           => __('5800 Sherbrooke-est - Montréal (Québec) H1X 2A2', 'theme_tp'),
+  'sanitize_callback' => 'sanitize_text_field',
+));
+$wp_customize->add_control('contact_address', array(
+  'label'   => __('Adresse', 'theme_tp'),
+  'section' => 'contact_section',
+  'type'    => 'text',
+));
+
+// ✅ Téléphone
+$wp_customize->add_setting('contact_phone', array(
+  'default'           => __('514-254-7131', 'theme_tp'),
+  'sanitize_callback' => 'sanitize_text_field',
+));
+$wp_customize->add_control('contact_phone', array(
+  'label'   => __('Téléphone', 'theme_tp'),
+  'section' => 'contact_section',
+  'type'    => 'text',
+));
 }
 
 add_action('customize_register', 'theme_tp_customize_register');

@@ -1,4 +1,12 @@
-<footer>
+<?php
+// ✅ Nouvelles données récupérées du Customizer
+    $main_color = get_theme_mod('main_color', '#ff0000');
+    $mission_text = get_theme_mod('mission_text', 'Notre mission est de...');
+    $contact_address = get_theme_mod('contact_address', '5800 Sherbrooke-est - Montréal (Québec) H1X 2A2');
+    $contact_phone = get_theme_mod('contact_phone', '514-254-7131'); 
+?>
+    <footer style="color: <?php echo esc_attr($main_color); ?>;">
+    <footer>
     <div class="piedpage global">
         <!-- Liens externes -->
         <section class="piedpage__s1">
@@ -13,8 +21,8 @@
         <!-- L'adresse et la barre de recherche  -->
         <h3>Adresse et recherche</h3>
         <div class="piedpage__s1__adresse_coord">
-        5800 Sherbrooke-est - Montréal (Québec) h1X 2A2
-        514-254-7131
+        <?php echo esc_html($contact_address); ?><br>
+        <?php echo esc_html($contact_phone); ?>
         </div>
         <div class="piedpage__s1__adresse_recherche">
         <!-- Barre de recherche -->
@@ -23,8 +31,7 @@
         </div>
         <div class="piedpage__s1__description">
         <h3>Mission du club</h3>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam quod exercitationem quae ea incidunt quaerat provident alias voluptas sapiente eos dolores, reprehenderit iusto maiores odit commodi, eius cumque odio? Tenetur?
-    
+        <p><?php echo esc_html($mission_text); ?></p>
         </section>
     </div>
     <section class="piedpage__s2">

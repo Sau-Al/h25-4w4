@@ -2,8 +2,13 @@
     <?php 
     $hero_auteur = get_theme_mod('hero_auteur', 'Default Title');
     $hero_background = get_theme_mod('hero_background', ''); 
-    $hero_cta_text = get_theme_mod('hero_cta_text', 'Default CTA');
+    $hero_cta_text = get_theme_mod('hero_cta_text', '');
     $hero_cta_link = get_theme_mod('hero_cta_link', '#');
+
+    // ✅ Nouvelles données récupérées du Customizer
+    $main_color = get_theme_mod('main_color', '#ff0000');
+    $contact_address = get_theme_mod('contact_address', '5800 Sherbrooke-est - Montréal (Québec) H1X 2A2');
+    $contact_phone = get_theme_mod('contact_phone', '514-254-7131');
     ?>
     <section class="hero" style="background-image: url(<?php echo $hero_background?>)">
         <div class="hero__contenu  global">
@@ -13,17 +18,15 @@
             <p class="hero__courriel">
                 <a href="#"><?php bloginfo('admin_email'); ?></a>
             </p>
-            <p class="hero__adresse">5800 Sherbrooke-est - Montréal (Québec) h1X 2A2</p>
-            <p class="hero__numero">514-254-7131</p>
-            <p class="hero_auteur">Auteur: <?php echo $hero_auteur?></p>
-            <button class="hero__button">
-            <?php echo $hero_cta_text?> 
-            </button>
+            <p class="hero__adresse"><?php echo esc_html($contact_address); ?></p>
+            <p class="hero__numero"><?php echo esc_html($contact_phone); ?></p>
+            <p class="hero_auteur">Auteur: <?php echo esc_html($hero_auteur); ?></p>
+            <a href="<?php echo esc_url($hero_cta_link); ?>" class="hero__button">
+            <?php echo esc_html($hero_cta_text); ?>
+            </a>
             <div class="hero__sociaux">
                 <!-- Les émoticons des réseaux sociaux -->
-                <img src="https://s2.svgbox.net/materialui.svg?ic=facebook" width="20" alt="facebook">
-                <img src="https://s2.svgbox.net/social.svg?ic=linkedin" width="20" alt="linkedin">
-                <img src="https://s2.svgbox.net/social.svg?ic=discord" width="20" alt="discord">
+                <?php get_template_part('gabarits/sociaux'); ?>
             </div>
         </div>
     </section>
