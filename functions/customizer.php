@@ -58,39 +58,6 @@ function theme_tp_customize_register($wp_customize) {
       'type'    => 'textarea',
   ));
   
-  /////////////////////////////// ajout de la donnée du bouton CTA
-  $wp_customize->add_setting('hero_cta_text', array(
-    'default' => __('Learn More', 'theme_tp'),
-    'sanitize_callback' => 'sanitize_text_field',
-  ));
-  /////////////////////////////// ajout du contrôle de la donnée
-  $wp_customize->add_control('hero_cta_text', array(
-    'label' => __('CTA Button Text', 'theme_tp'),
-    'section' => 'hero_section',
-    'type' => 'text',
-  ));
-  /////////////////////////////// Lien du bouton CTA
-  $wp_customize->add_setting('hero_cta_link', array(
-    'default' => '#',
-    'sanitize_callback' => 'esc_url_raw',
-  ));
-  /////////////////////////////// ajout du contrôle de la donnée
-  $wp_customize->add_control('hero_cta_link', array(
-    'label' => __('CTA Button Link', 'theme_tp'),
-    'section' => 'hero_section',
-    'type' => 'url',
-  ));
-  // Couleur principale
-  $wp_customize->add_setting('main_color', array(
-    'default'           => '#ff0000', // Valeur par défaut : rouge
-    'sanitize_callback' => 'sanitize_hex_color',
-  ));
-  /////////////////////////////// ajout du contrôle de la donnée
-  $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'main_color', array(
-    'label'   => __('Couleur principale', 'theme_tp'),
-    'section' => 'contact_section',
-  )));
-  
   // Nouvelle section pour les contacts
   $wp_customize->add_section('contact_section', array(
     'title'    => __('Informations de contact', 'theme_tp'),

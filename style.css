@@ -129,29 +129,49 @@ h6 {
   min-height: 100vh;
 }
 
-.hero__button {
-  background-color: rgba(255, 255, 255, 0.5960784314); /* Green */
-  border: none;
-  color: rgb(0, 0, 0);
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 1rem;
-  font-weight: bold;
-  border-radius: 15px;
-  height: 3rem;
-  width: auto;
-  margin: 15px 0;
-  padding: 0 2rem;
+.hero__contenu {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  padding: 20px;
+  color: rgba(0, 0, 0, 0.533);
 }
 
 .hero__titre {
-  color: rgb(31, 31, 31);
-  text-shadow: 2px 2px 8px rgba(0, 185, 231, 0.6745098039);
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  font-family: "Poppins", sans-serif;
+  transition: transform 0.3s ease;
+}
+
+.hero__titre:hover {
+  transform: translateY(-5px); /* Effet d'élévation au survol */
 }
 
 .hero__description {
-  width: 40vw;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  font-weight: 300;
+}
+
+.hero__courriel, .hero__adresse, .hero__numero, .hero_auteur {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  font-weight: 400;
+}
+
+.hero__courriel a, .hero__numero a {
+  color: rgba(7, 72, 103, 0.5803921569);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.hero__courriel a:hover, .hero__numero a:hover {
+  color: #fff; /* Changement de couleur au survol */
 }
 
 .hero__form {
@@ -267,6 +287,189 @@ form {
   transform: translateY(-2px);
 }
 
+/* ==== Section Catégorie ==== */
+.category {
+  background-color: #f9f9f9;
+  padding: 50px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.category .global {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+/* ==== Titre de la catégorie ==== */
+.titre__category {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #05283C;
+  text-align: center;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  position: relative;
+}
+.titre__category::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: #26baff;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+/* ==== Description de la catégorie ==== */
+.description__category {
+  font-size: 1.1rem;
+  color: #555;
+  text-align: center;
+  margin-bottom: 30px;
+  line-height: 1.6;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ==== Carte (utilisée dans get_template_part) ==== */
+article {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+article:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+}
+article .titre__category {
+  font-size: 1.5rem;
+  color: #05283C;
+  margin-bottom: 10px;
+  font-weight: 600;
+  text-align: center;
+  transition: color 0.3s ease;
+}
+article .titre__category:hover {
+  color: #26baff;
+}
+article img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+article .entry-content {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.5;
+  text-align: center;
+}
+article a {
+  color: #26baff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+article a:hover {
+  color: #05283C;
+}
+
+/* ==== Bouton "En savoir plus" ==== */
+.read-more {
+  background-color: #26baff;
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-top: 15px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+}
+.read-more:hover {
+  background-color: #1e8baf;
+  transform: translateY(-3px);
+}
+
+/* ==== Effet d'entrée en fondu pour chaque carte ==== */
+article {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 0.5s ease forwards;
+}
+article:nth-child(1) {
+  animation-delay: 0.1s;
+}
+article:nth-child(2) {
+  animation-delay: 0.2s;
+}
+article:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* ==== Responsive Design ==== */
+@media screen and (max-width: 768px) {
+  .titre__category {
+    font-size: 2rem;
+  }
+  .description__category {
+    font-size: 1rem;
+    padding: 0 10px;
+  }
+  .global {
+    grid-template-columns: 1fr;
+  }
+  article {
+    padding: 15px;
+  }
+  article h2 {
+    font-size: 1.3rem;
+  }
+  article .entry-content {
+    font-size: 0.9rem;
+  }
+  .read-more {
+    font-size: 0.8rem;
+    padding: 8px 16px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .titre__category {
+    font-size: 1.8rem;
+  }
+  .description__category {
+    font-size: 0.9rem;
+  }
+  article {
+    padding: 10px;
+  }
+  .read-more {
+    width: 100%;
+    font-size: 0.8rem;
+  }
+}
 /* Global styles for the single post */
 .single__post.populaire {
   background-color: #fafafa;
@@ -438,6 +641,7 @@ form {
 
 .carte__contenu {
   background: rgba(0, 0, 0, 0.5);
+  color: white;
   padding: 20px;
   border-radius: 8px;
 }

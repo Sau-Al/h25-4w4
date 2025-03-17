@@ -5,30 +5,51 @@
     min-height: 100vh;
 }
 
-.hero__button{
-    background-color: #ffffff98; /* Green */
-    border: none;
-    color: rgb(0, 0, 0);
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
+
+.hero__contenu {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    padding: 20px;
+    color: rgba(0, 0, 0, 0.533);
+}
+
+.hero__titre {
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    font-family: 'Poppins', sans-serif;
+    transition: transform 0.3s ease;
+}
+
+.hero__titre:hover {
+    transform: translateY(-5px); /* Effet d'élévation au survol */
+}
+
+.hero__description {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    font-weight: 300;
+}
+
+.hero__courriel, .hero__adresse, .hero__numero, .hero_auteur {
     font-size: 1rem;
-    font-weight: bold;
-    border-radius: 15px;
-    height: 3rem;
-    width: auto;
-    margin: 15px 0;
-    padding: 0 2rem;
-  }
+    margin-bottom: 10px;
+    font-weight: 400;
+}
 
-  .hero__titre{
-    color: rgb(31, 31, 31);
-    text-shadow: 2px 2px 8px #00b9e7ac;
-  }
+.hero__courriel a, .hero__numero a {
+    color: #07486794;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
 
-  .hero__description{
-    width: 40vw;
-  }
+.hero__courriel a:hover, .hero__numero a:hover {
+    color: #fff; /* Changement de couleur au survol */
+}
 
 
 .hero__form{
