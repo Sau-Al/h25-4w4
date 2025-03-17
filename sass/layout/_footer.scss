@@ -1,32 +1,193 @@
-// 
-// -------------------------------Layout du pied de page
-footer{
-background-color: rgb(111, 161, 204);
-color: wheat;
+/* Style général du footer */
+.footer {
+    background-color: #f4f4f4; /* Fond clair */
+    color: #333;
+
+    &__nav{
+        display: flex;
+    }
 }
 
-.piedpage{
+.footer__content {
     display: flex;
-    flex-direction: column;
-    &__s1{
-        display: flex;
-        flex-wrap: wrap;
-        gap: 3rem;
-        &__externe {
-            flex: 0 0 20%;
-            & .menu {
-                display: flex;
-                flex-direction: column;
-            }
-        }
-        &__adresse {
-            flex: 0 0 40%;
-        &__coord {}
-        &__recherche{}
-    }
-    &__description{
-        flex: 1 0 400px;
-    }
+    justify-content: space-between;
+    gap: 30px;
+    flex-wrap: wrap; /* Permet de faire passer les éléments à la ligne sur petits écrans */
+    padding-bottom: 30px;
+}
+
+.footer__section {
+    flex: 1;
+    min-width: 250px;
+}
+
+.footer__section h3 {
+    font-size: 1.5rem;
+    color: #007acc; /* Couleur de l'accent */
+    margin-bottom: 15px;
+}
+
+.footer__menu, .footer__nav {
+    list-style: none;
+    padding: 0;
+}
+
+.footer__menu li, .footer__nav li {
+    margin-bottom: 10px;
+}
+
+.footer__address p {
+    margin: 5px 0;
+}
+
+.footer__search {
+    margin-top: 15px;
+}
+
+.footer__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    border-top: 1px solid #ccc;
+    flex-wrap: wrap; /* Ajout de wrap pour les petits écrans */
+}
+
+.footer__social {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icon img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease;
+}
+
+.social-icon:hover img {
+    transform: scale(1.1);
+}
+
+.footer__menu a {
+    text-decoration: none;
+    color: #007acc;
+    font-weight: 500;
+}
+
+.footer__menu a:hover {
+    text-decoration: underline;
+}
+
+/* Espacements et ajustements pour les petits écrans */
+.footer__section:nth-child(1),
+.footer__section:nth-child(2),
+.footer__section:nth-child(3) {
+    background-color: #e0e0e0;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.footer__section form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer__section input[type="email"] {
+    padding: 12px 20px;
+    font-size: 16px;
+    max-width: 350px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.footer__section input[type="email"]:focus {
+    border-color: #6c5ce7; /* Couleur de bordure lors du focus */
+}
+
+.footer__section .abonner {
+    padding: 12px 30px;
+    font-size: 16px;
+    background-color: #6c5ce7;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.footer__section .abonner:hover {
+    background-color: #4e41d8; /* Changer la couleur au survol */
+    transform: translateY(-2px); /* Effet léger de survol */
+}
+
+.footer__section .abonner:focus {
+    outline: none;
+}
+
+/* Media Queries pour rendre le footer responsive */
+@media (max-width: 1024px) {
+    .footer__content {
+        flex-direction: column; /* Empile les sections pour les écrans moyens */
     }
 
+    .footer__bottom {
+        flex-direction: column; /* Empile les éléments du bas */
+        text-align: center;
+    }
+
+    .footer__social {
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .footer__menu {
+        text-align: center;
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer__content {
+        padding: 10px;
+    }
+
+    .footer__section h3 {
+        font-size: 1.25rem; /* Réduit la taille du titre sur petits écrans */
+    }
+
+    .footer__menu li {
+        margin-bottom: 5px; /* Réduit l'espacement des éléments du menu */
+    }
+
+    .footer__bottom {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer__social {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer__content {
+        padding: 10px;
+    }
+
+    .footer__section h3 {
+        font-size: 1.1rem; /* Réduit encore la taille des titres pour les très petits écrans */
+    }
+
+    .footer__menu a {
+        font-size: 14px; /* Réduit la taille des liens du menu */
+    }
+
+    .footer__social img {
+        width: 25px;
+        height: 25px;
+    }
 }

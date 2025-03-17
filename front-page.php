@@ -35,13 +35,20 @@
             <p>Nous cherchons à fournir un contenu authentique à tout voyageur du monde entier.</p>
         </div>
     </section>
-    <section class="populaire">
+    <section class="front__page populaire">
     <div class="global">
     <!-- La galerie -->
-            <?php if (have_posts()) : while (have_posts()) : the_post();
+            <?php 
+            $has_displayed_title = false; // Variable pour vérifier si le titre a été affiché
+            if (have_posts()) : while (have_posts()) : the_post();
             if (in_category("galerie")) {
                 the_content();
-            } else {
+            } else {// Affiche le titre une seule fois avant la première carte
+                if (!$has_displayed_title) {
+                    echo '<h2>Destinations Populaires</h2>';
+                    $has_displayed_title = true; // Empêche l'affichage du titre plusieurs fois
+            }
+                
             ?>
             <div class="cartes">
                 <!-- Les cartes -->
