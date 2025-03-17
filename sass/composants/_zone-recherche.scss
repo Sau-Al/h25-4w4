@@ -1,21 +1,26 @@
 .recherche{
     display: flex;
-    border: 1px solid black;
+    background-color: rgba(159, 164, 174, 0.601);
+    width: 25rem;
+    border-radius: 25px;
     height: 2rem;
+    padding: 5px;
 
     &__input{
         border: none;
         outline: none;
-        background-color: rgba(0,0,0,.05);
+        background-color: transparent;
         flex: 1 0 auto;
         padding: 3px;
-        &:hover{
-            background-color: rgba(0,0,0,.09);
-        }
         &::placeholder{
-            color: rgba(0,0,.2);
+            color: rgb(255, 255, 255);
             font-style: italic;
         }
+    }
+
+    &__bouton{
+        border: none;
+        background: none;
     }
 
     &__img{

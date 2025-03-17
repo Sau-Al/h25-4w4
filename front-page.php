@@ -1,6 +1,9 @@
     <?php get_header(); ?>
     <!-- Zone Hero -->
-    <?php get_template_part('gabarits/hero'); ?>
+    <?php get_template_part('gabarits/hero');
+     $mission_background = get_theme_mod('mission_background', ''); 
+    
+    $mission_text = get_theme_mod('mission_text', 'Notre mission est de...');?>
     
     <section class="form__principale">
         <div class="hero__form">
@@ -28,11 +31,12 @@
     
     <section class="galerie">
         <div class="galerie global">
-            <h2>Nos destinations préférées</h2>
+            <h2>Les merveilles du monde</h2>
+            <p>Nous cherchons à fournir un contenu authentique à tout voyageur du monde entier.</p>
         </div>
-</section>
-<section class="populaire">
-<div class="global">
+    </section>
+    <section class="populaire">
+    <div class="global">
     <!-- La galerie -->
             <?php if (have_posts()) : while (have_posts()) : the_post();
             if (in_category("galerie")) {
@@ -46,6 +50,13 @@
                 <?php endwhile; endif; ?>
             </div>
         </div>
+    </section>
+    <section class="mission" style="background-image: url('<?php echo esc_url(get_theme_mod('mission_background')); ?>');">
+    <div class="texte__booking">
+    <h2>Ici pour créer les vacances parfaits pour vous!</h2>
+    <p><?php echo esc_html($mission_text); ?></p>
+    <button class="booking">Réserver maintenant</button>
+    </div>
 </section>
 <footer></footer>
 <?php get_footer(); ?>

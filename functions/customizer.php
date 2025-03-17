@@ -27,6 +27,37 @@ function theme_tp_customize_register($wp_customize) {
     'label' => __('Image en arrière plan', 'theme_tp'),
     'section' => 'hero_section',
   )));
+  // ===============================
+    // ➡️ SECTION MISSION (NOUVELLE)
+    // ===============================
+    $wp_customize->add_section('mission_section', array(
+      'title'    => __('Section Mission', 'theme_tp'),
+      'priority' => 32,
+  ));
+
+  // Image en arrière-plan Mission
+  $wp_customize->add_setting('mission_background', array(
+      'default'           => '',
+      'sanitize_callback' => 'esc_url_raw',
+  ));
+
+  $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'mission_background', array(
+      'label'   => __('Image en arrière-plan', 'theme_tp'),
+      'section' => 'mission_section',
+  )));
+
+  // Texte Mission
+  $wp_customize->add_setting('mission_text', array(
+      'default'           => __('Notre mission est de...', 'theme_tp'),
+      'sanitize_callback' => 'sanitize_text_field',
+  ));
+
+  $wp_customize->add_control('mission_text', array(
+      'label'   => __('Texte de la mission', 'theme_tp'),
+      'section' => 'mission_section',
+      'type'    => 'textarea',
+  ));
+  
   /////////////////////////////// ajout de la donnée du bouton CTA
   $wp_customize->add_setting('hero_cta_text', array(
     'default' => __('Learn More', 'theme_tp'),

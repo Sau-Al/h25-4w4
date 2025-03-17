@@ -16,3 +16,5 @@ function theme_tp_customize_options($wp_customize) {
 // Ajout de l'action dans le hook `customize_register`
 add_action('customize_register', 'theme_tp_customize_options');
 
+
+

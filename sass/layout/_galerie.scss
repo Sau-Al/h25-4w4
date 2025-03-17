@@ -1,6 +1,14 @@
+.galerie.global{
+    padding: 0;
+}
+
 .galerie{
     display: flex;
     flex-direction: column;
+    align-items: center;
+    color: white;
+    background-color: #05283C;
+
     &__img{
         width: 18vw;
         height: 30vh;
@@ -20,4 +28,10 @@
 .galerie__figure{
     padding: 2px;
     margin: 2px;
+}
+
+.populaire{
+    .global{
+        background-color: #05283C;
+    }
 }

@@ -18,6 +18,7 @@
                     the_custom_logo();}?>
                 </figure>
             </div>
+            <?php get_search_form(); ?>
             <div class="entete__nav">
                 <input type="checkbox" id="chk__burger">
                 <label for="chk__burger" id="burger">
@@ -28,7 +29,6 @@
                     "container" => "div",
                     "container_class" => "entete__menu"
                 )); ?>
-                <?php get_search_form(); ?>
             </div>
         </div>
     </header>
