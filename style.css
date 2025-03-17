@@ -57,7 +57,7 @@ h6 {
 .menu {
   list-style-type: none;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 3rem;
 }
 .menu-item {
@@ -93,6 +93,7 @@ h6 {
     display: initial;
   }
   .entete__menu {
+    z-index: 26;
     display: flex;
     position: absolute;
     top: 100%;
@@ -120,6 +121,9 @@ h6 {
   }
   #burger {
     display: none;
+  }
+  .menu {
+    flex-direction: row;
   }
 }
 .hero {

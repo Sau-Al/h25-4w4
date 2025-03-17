@@ -1,7 +1,7 @@
 .menu{
     list-style-type: none;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     gap: 3rem;
 
     &-item{
@@ -44,6 +44,7 @@
 }
 
 .entete__menu{
+    z-index: 26;
     display: flex;
     position: absolute;
     top: 100%;
@@ -76,6 +77,10 @@
 
 #burger{
     display: none;
+}
+
+.menu{
+    flex-direction: row;
 }
 }
 
