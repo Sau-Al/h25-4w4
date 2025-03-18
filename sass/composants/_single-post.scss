@@ -1,4 +1,4 @@
-/* Global styles for the single post */
+/* Style global pour les singles posts */
 .single__post.populaire {
     background-color: #fafafa;
     padding: 80px 20px;
@@ -13,7 +13,7 @@
     gap: 30px;
 }
 
-/* Article Styling */
+// Style pour les articles
 .single__post.populaire article {
     background-color: white;
     border-radius: 15px;
@@ -31,7 +31,7 @@
     box-shadow: 0 20px 55px rgba(0, 0, 0, 0.15);
 }
 
-/* Title Styling */
+/* Style pour le titre */
 .single__post.populaire article h2 {
     font-size: 2.5rem;
     font-weight: 600;
@@ -40,7 +40,7 @@
     line-height: 1.4;
 }
 
-/* Content Styling */
+
 .single__post.populaire article div {
     font-size: 1rem;
     color: #555;
@@ -48,7 +48,7 @@
     margin-bottom: 20px;
 }
 
-/* Temperature Styling */
+
 .single__post.populaire article p {
     font-size: 1rem;
     color: #666;
@@ -61,7 +61,7 @@
     color: #222;
 }
 
-/* Image Styling */
+
 .single__post.populaire article img {
     width: 100%;
     max-height: 400px;
@@ -70,7 +70,7 @@
     margin-bottom: 20px;
 }
 
-/* Responsive for smaller screens */
+/* Adaptibilite */
 @media screen and (max-width: 768px) {
     .single__post.populaire .global {
         width: 100%;
