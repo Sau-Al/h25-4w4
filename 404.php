@@ -13,8 +13,8 @@
                     Le lien est brisé ou trop vieux.
                 </li>
             </ul>
-            <button>Retour à la page d'accueil</button>
-            <button>Aide</button>
+            <button class="bouton_pg_error">Retour à la page d'accueil</button>
+            <button class="bouton_pg_error">Aide</button>
         </div>
     </section>
     <?php get_footer(); ?>

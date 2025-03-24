@@ -1,0 +1,24 @@
+.error {
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 50vh;
+}
+
+.texte_erreur {
+    color: white;
+    padding: 2rem;
+}
+
+.bouton_pg_error{
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ff6b6b;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.bouton_pg_error--actif:hover {
+    background-color: #ff4c4c;
+}
