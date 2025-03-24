@@ -744,6 +744,8 @@ article:nth-child(3) {
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 50vh;
+  display: flex;
+  align-content: center;
 }
 
 .texte_erreur {
@@ -763,6 +765,13 @@ article:nth-child(3) {
 
 .bouton_pg_error--actif:hover {
   background-color: #ff4c4c;
+}
+
+.recherche_erreur {
+  display: flex;
+  padding: 2rem;
+  flex-direction: column;
+  align-items: center;
 }
 
 .entete {
