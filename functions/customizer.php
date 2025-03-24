@@ -45,6 +45,24 @@ function theme_tp_customize_register($wp_customize) {
       'label'   => __('Image en arrière-plan', 'theme_tp'),
       'section' => 'mission_section',
   )));
+  // ===============================
+    // ➡️ SECTION PAGE 404 (NOUVELLE)
+    // ===============================
+    $wp_customize->add_section('error_section', array(
+      'title'    => __('Section 404', 'theme_tp'),
+      'priority' => 32,
+  ));
+
+  // Image en arrière-plan Mission
+  $wp_customize->add_setting('error_background', array(
+      'default'           => '',
+      'sanitize_callback' => 'esc_url_raw',
+  ));
+
+  $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'error_background', array(
+      'label'   => __('Image en arrière-plan', 'theme_tp'),
+      'section' => 'error_section',
+  )));
 
   // Texte Mission
   $wp_customize->add_setting('mission_text', array(
