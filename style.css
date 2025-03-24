@@ -774,6 +774,34 @@ article:nth-child(3) {
   align-items: center;
 }
 
+/* Version mobile */
+@media (max-width: 768px) {
+  .error {
+    min-height: 40vh; /* Réduit la hauteur pour les petits écrans */
+    padding: 1rem; /* Espacement plus petit */
+    flex-direction: column;
+  }
+  .texte_erreur {
+    font-size: 1rem; /* Taille de texte réduite */
+    padding: 1rem; /* Réduit l'espace autour du texte */
+  }
+  .bouton_pg_error {
+    width: 100%; /* Bouton prend toute la largeur */
+    padding: 15px 0; /* Ajuste le padding pour plus d'espace */
+    font-size: 1.2rem; /* Augmente légèrement la taille du texte pour le bouton */
+  }
+  .recherche_erreur {
+    display: none;
+  }
+}
+@media (max-width: 480px) {
+  .texte_erreur {
+    font-size: 0.9rem; /* Réduit la taille du texte encore plus sur très petits écrans */
+  }
+  .bouton_pg_error {
+    font-size: 1rem; /* Ajuste la taille du texte pour les plus petits écrans */
+  }
+}
 .entete {
   display: flex;
   justify-content: space-between;
