@@ -53,7 +53,7 @@ function theme_tp_customize_register($wp_customize) {
       'priority' => 32,
   ));
 
-  // Image en arrière-plan Mission
+  // Image en arrière-plan
   $wp_customize->add_setting('error_background', array(
       'default'           => '',
       'sanitize_callback' => 'esc_url_raw',
