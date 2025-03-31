@@ -16,7 +16,7 @@
         <?php wp_nav_menu(array(
                 "menu" => "404",
                 "container" => "nav",
-                "menu_class" => "footer__menu"
+                "menu_class" => "erreur__menu"
             )); ?>
     </section>
     <?php get_footer(); ?>
