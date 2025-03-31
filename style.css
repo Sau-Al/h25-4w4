@@ -755,11 +755,13 @@ article:nth-child(3) {
   align-items: center;
   background-color: rgba(255, 255, 255, 0.381);
   padding: 2rem;
+  width: 80vw;
 }
 
 .para_404 {
   background-color: rgba(255, 255, 255, 0.381);
   padding: 2rem;
+  width: 80vw;
 }
 
 .texte_erreur {
@@ -804,6 +806,19 @@ article:nth-child(3) {
   background-color: #ff4c4c;
 }
 
+@media (min-width: 1025px) and (max-width: 1280px) {
+  .titre_404 {
+    background-color: #ff6b6b;
+  }
+  .menu {
+    flex-wrap: wrap;
+  }
+}
+@media (min-width: 1281px) {
+  .titre_404 {
+    background-color: #6bfff5;
+  }
+}
 .entete {
   display: flex;
   justify-content: space-between;

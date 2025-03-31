@@ -1,3 +1,4 @@
+// Version Mobile
 .section_404 {
     background-repeat: no-repeat;
     background-size: cover;
@@ -13,11 +14,13 @@
     align-items: center;
     background-color: rgba(255, 255, 255, 0.381);
     padding: 2rem;
+    width: 80vw;
 }
 
 .para_404{
     background-color: rgba(255, 255, 255, 0.381);
     padding: 2rem;
+    width: 80vw;
 }
 
 .texte_erreur{
@@ -48,13 +51,6 @@
     margin: 2.5rem;
 }
 
-
-
-
-
-
-
-
 .bouton_pg_error{
     display: inline-block;
     padding: 10px 20px;
@@ -68,3 +64,25 @@
 .bouton_pg_error--actif:hover {
     background-color: #ff4c4c;
 }
+
+// Version Tablette
+@media (min-width: 1025px) and (max-width: 1280px) {
+  
+    .titre_404{
+        background-color: #ff6b6b;
+    }
+
+    .menu{
+        flex-wrap: wrap;
+    }
+    
+  }
+
+// Version Desktop
+@media (min-width: 1281px) {
+  
+    .titre_404{
+        background-color: #6bfff5;
+    }
+    
+  }
