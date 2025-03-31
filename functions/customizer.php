@@ -28,7 +28,7 @@ function theme_tp_customize_register($wp_customize) {
     'section' => 'hero_section',
   )));
   // ===============================
-    // ➡️ SECTION MISSION (NOUVELLE)
+    // ➡️ SECTION MISSION
     // ===============================
     $wp_customize->add_section('mission_section', array(
       'title'    => __('Section Mission', 'theme_tp'),
@@ -53,6 +53,28 @@ function theme_tp_customize_register($wp_customize) {
       'priority' => 32,
   ));
 
+  // Texte Titre Erreur
+  $wp_customize->add_setting('erreur_text', array(
+    'default'           => __('Notre mission est de...', 'theme_tp'),
+    'sanitize_callback' => 'sanitize_text_field',
+));
+$wp_customize->add_control('erreur_text', array(
+  'label'   => __('Titre_erreur', 'theme_tp'),
+  'section' => 'contact_section',
+  'type'    => 'textarea',
+));
+
+  // Texte Paragraph Erreur
+  $wp_customize->add_setting('erreur_parag', array(
+    'default'           => __('Notre mission est de...', 'theme_tp'),
+    'sanitize_callback' => 'sanitize_text_field',
+));
+$wp_customize->add_control('erreur_parag', array(
+  'label'   => __('Parag_erreur', 'theme_tp'),
+  'section' => 'contact_section',
+  'type'    => 'textarea',
+));
+
   // Image en arrière-plan
   $wp_customize->add_setting('error_background', array(
       'default'           => '',
@@ -64,14 +86,14 @@ function theme_tp_customize_register($wp_customize) {
       'section' => 'section_404',
   )));
 // Bouton CTA
-  $wp_customize->add_setting('hero_cta_text', array(
-    'default' => __('Learn More', 'theme_tp'),
+  $wp_customize->add_setting('erreur_cta_text', array(
+    'default' => __('Retour', 'theme_tp'),
     'sanitize_callback' => 'sanitize_text_field',
 ));
 
-$wp_customize->add_control('hero_cta_text', array(
+$wp_customize->add_control('erreur_cta_text', array(
     'label' => __('CTA Button Text', 'theme_tp'),
-    'section' => 'hero_section',
+    'section' => 'section_404',
     'type' => 'text',
 ));
 
