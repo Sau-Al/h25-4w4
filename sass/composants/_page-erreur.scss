@@ -49,6 +49,9 @@
 
 .erreur__global{
     margin: 2.5rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
 .bouton_pg_error{
@@ -67,10 +70,6 @@
 
 // Version Tablette
 @media (min-width: 1025px) and (max-width: 1280px) {
-  
-    .titre_404{
-        background-color: #ff6b6b;
-    }
 
     .menu{
         flex-wrap: wrap;
@@ -82,7 +81,11 @@
 @media (min-width: 1281px) {
   
     .titre_404{
-        background-color: #6bfff5;
+        width: 50vw;
+    }
+
+    .para_404{
+        width: 50vw;
     }
     
   }
