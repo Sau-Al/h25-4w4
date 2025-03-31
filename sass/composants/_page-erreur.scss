@@ -29,9 +29,24 @@
 
 .erreur__menu{
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-evenly;
+    padding: 1rem 0 0 0;
+    margin: 0;
+    gap: 5px;
 }
 
+.erreur__menu a{
+    background-color: rgba(0, 76, 255, 0.496);
+    color: black;
+    font-size: 18px;
+    padding: 12px;
+    border-radius: 15px;
+}
+
+.erreur__global{
+    margin: 2.5rem;
+}
 
 
 
