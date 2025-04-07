@@ -4,7 +4,6 @@
   * @param string $parent_slug Le slug de la catégorie parente
   */
  function categories_liste($parent_slug){
-    echo "categorie_liste";
 // Récupérer la catégorie parente à partir de son slug
 $parent_category = get_category_by_slug($parent_slug);
 // Vérifier si la catégorie parente existe
@@ -20,7 +19,7 @@ $sous_categories = get_categories(array(
 if (!empty($sous_categories)) {echo '<ul class="categorie__ul">';
     foreach ($sous_categories as $categorie) {
         // Afficher le nom de chaque sous-catégorie
-        echo '<li  data-category_id="' . esc_html($categorie->term_id) . '" class="categorie__ul__li">' . esc_html($categorie->name) . '</li>';
+        echo '<li  data-category-id="' . esc_html($categorie->term_id) . '" class="categorie__ul__li">' . esc_html($categorie->name) . '</li>';
     }
     echo '</ul>';
  }

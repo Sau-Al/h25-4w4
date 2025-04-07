@@ -826,17 +826,47 @@ article:nth-child(3) {
   display: flex;
   gap: 5px;
   list-style-type: none;
+  justify-content: center;
+  padding: 2rem;
+}
+.categorie__ul__li {
+  padding: 12px 30px;
   background-color: #ff6b6b;
   color: #ffffff;
   font-size: 1rem;
   font-weight: 600;
   border: none;
   border-radius: 30px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 }
-.categorie__ul__li {
-  padding: 3px;
-  border: 1px solid #aaa;
-  background-color: aquamarine;
+
+.categorie__ul__li:hover {
+  background-color: #ff4c4c;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.destination__titre {
+  color: black;
+  display: flex;
+  justify-content: center;
+}
+
+.destination {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.destination__list {
+  width: 75vw;
+}
+
+/* Style pour le bouton actif */
+.categorie__ul__li.active {
+  background-color: #3498db; /* couleur de fond bleu pour le bouton actif */
+  color: white; /* texte en blanc */
+  border: 1px solid #2980b9; /* bordure bleu foncé */
 }
 
 .entete {
