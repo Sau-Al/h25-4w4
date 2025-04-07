@@ -1,31 +1,52 @@
 <?php
+function mon_theme_supports() {
 
-// Couleur principale
-function theme_tp_customize_options($wp_customize) {
-    // Ajout de la couleur principale dans la section "contact_section"
-    $wp_customize->add_setting('main_color', array(
-        'default'           => '#ff0000', // Valeur par défaut : rouge
-        'sanitize_callback' => 'sanitize_hex_color',
-    ));
-    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'main_color', array(
-        'label'   => __('Couleur principale', 'theme_tp'),
-        'section' => 'section_404',
-    )));
-}
+    add_theme_support('title-tag');
+    add_theme_support('menus');
+    add_theme_support('post-thumbnails');
+    add_theme_support('custom-logo', array(
+      'height'      => 250,
+      'width'       => 250,
+      'flex-height' => true,
+      'flex-width'  => true,
+  ));
+  
+  }
+  add_action( 'after_setup_theme', 'mon_theme_supports' );
+  
+  
+  function theme_4w4_enqueue_styles() { 
+  wp_enqueue_style('normalize', get_template_directory_uri() . '/normalize.css');  
+  wp_enqueue_style('mon-style-style', get_stylesheet_uri()); 
+  
+  wp_enqueue_script(
+    'destination_restapi',
+    get_template_directory_uri() . '/js/destination.js',
+    array(),
+    filemtime(get_template_directory() . 
+    '/js/destination.js'),
+    true
+  );
+  } 
+  /* 
+  */
+  add_action('wp_enqueue_scripts', 'theme_4w4_enqueue_styles');
 
-// Ajout de l'action dans le hook `customize_register`
-add_action('customize_register', 'theme_tp_customize_options');
+  /**
+ * Modifie la requete principale de WordPress avant qu'elle soit exécuté
+ * le hook « pre_get_posts » se manifeste juste avant d'exécuter la requête principal
+ * Dépendant de la condition initiale on peut filtrer un type particulier de requête
+ * Dans ce cas ci nous filtrons la requête de la page d'accueil
+ * @param WP_query  $query la requête principal de WP
+ */
 
 
-
-function mytheme_customizer_css() {
-    ?>
-    <style type="text/css">
-        .texte_erreur {
-            color: <?php echo get_theme_mod('main_color', '#000000'); ?>;
-        }
-    </style>
-    <?php
-}
-add_action('wp_head', 'mytheme_customizer_css');
+function modifie_requete_principal( $query ) {
+    if ( $query->is_home() && $query->is_main_query() && ! is_admin() ) {
+      $query->set( 'category_name', 'populaire' );
+      $query->set( 'orderby', 'title' );
+      $query->set( 'order', 'ASC' );
+      }
+     }
+     add_action( 'pre_get_posts', 'modifie_requete_principal' );
 
