@@ -1,33 +1,26 @@
 <?php
+/**
+ * Configuration du cutomizer. On ajoute les section hero et footer
+ */
 function theme_tp_customize_register($wp_customize) {
-    // Le code pour ajouter des sections, des réglages et des contrôles ira ici.
-    // Création d'une nouvelle section dans le customizer
-    $wp_customize->add_section('hero_section', array(
-      'title' => __('Section Hero', 'theme_tp'),
-      'priority' => 30,
-  ));
-  /////////////////////////////// ajout de la donnée
-  $wp_customize->add_setting('hero_auteur', array(
-    'default' => __('Alicia Sau', 'theme_tp'),
-    'sanitize_callback' => 'sanitize_text_field'
-  ));
-  /////////////////////////////// ajout du contrôle de la donnée
-  $wp_customize->add_control('hero_auteur', array(
-    'label' => __('Auteur', 'theme_tp'),
-    'section' => 'hero_section',
-    'type' => 'text',
-  ));
-  /////////////////////////////// ajout de la donnée image en background
-  $wp_customize->add_setting('hero_background', array(
-    'default' => '',
-    'sanitize_callback' => 'esc_url_raw',
-  ));
-  /////////////////////////////// ajout du contrôle de la donnée
-  $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'hero_background', array(
-    'label' => __('Image en arrière plan', 'theme_tp'),
-    'section' => 'hero_section',
-  )));
-  // ===============================
+  // Le code pour ajouter des sections, des réglages et des contrôles ira ici.
+  // Création d'une nouveele section dans le customizer
+  $wp_customize->add_section('hero_section', array(
+    'title' => __('Section Hero', 'theme_tp'),
+    'priority' => 30,
+));
+///////////////////////////////// ajout de la donnée
+$wp_customize->add_setting('hero_auteur', array(
+  'default' => __('Alicia Sau', 'theme_tp'),
+  'sanitize_callback' => 'sanitize_text_field'
+));
+///////////////////////////////// ajout du contrôle de la donnée
+$wp_customize->add_control('hero_auteur', array(
+  'label' => __('Auteur', 'theme_tp'),
+  'section' => 'hero_section',
+  'type' => 'text',
+));
+// ===============================
     // ➡️ SECTION MISSION
     // ===============================
     $wp_customize->add_section('mission_section', array(
@@ -74,109 +67,91 @@ $wp_customize->add_control('erreur_parag', array(
   'section' => 'contact_section',
   'type'    => 'textarea',
 ));
+// Image en arrière-plan
+$wp_customize->add_setting('error_background', array(
+  'default'           => '',
+  'sanitize_callback' => 'esc_url_raw',
+));
 
-  // Image en arrière-plan
-  $wp_customize->add_setting('error_background', array(
-      'default'           => '',
-      'sanitize_callback' => 'esc_url_raw',
-  ));
-
-  $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'error_background', array(
-      'label'   => __('Image en arrière-plan', 'theme_tp'),
-      'section' => 'section_404',
-  )));
+$wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'error_background', array(
+  'label'   => __('Image en arrière-plan', 'theme_tp'),
+  'section' => 'section_404',
+)));
 // Bouton CTA
-  $wp_customize->add_setting('erreur_cta_text', array(
-    'default' => __('Retour', 'theme_tp'),
-    'sanitize_callback' => 'sanitize_text_field',
+$wp_customize->add_setting('erreur_cta_text', array(
+'default' => __('Retour', 'theme_tp'),
+'sanitize_callback' => 'sanitize_text_field',
 ));
 
 $wp_customize->add_control('erreur_cta_text', array(
-    'label' => __('CTA Button Text', 'theme_tp'),
-    'section' => 'section_404',
-    'type' => 'text',
+'label' => __('CTA Button Text', 'theme_tp'),
+'section' => 'section_404',
+'type' => 'text',
+));
+// Texte Mission
+$wp_customize->add_setting('mission_text', array(
+  'default'           => __('Notre mission est de...', 'theme_tp'),
+  'sanitize_callback' => 'sanitize_text_field',
 ));
 
-  // Texte Mission
-  $wp_customize->add_setting('mission_text', array(
-      'default'           => __('Notre mission est de...', 'theme_tp'),
-      'sanitize_callback' => 'sanitize_text_field',
-  ));
+$wp_customize->add_control('mission_text', array(
+  'label'   => __('Texte de la mission', 'theme_tp'),
+  'section' => 'mission_section',
+  'type'    => 'textarea',
+));
+// Nouvelle section pour les contacts
+$wp_customize->add_section('contact_section', array(
+  'title'    => __('Informations de contact', 'theme_tp'),
+  'priority' => 35,
+));
 
-  $wp_customize->add_control('mission_text', array(
-      'label'   => __('Texte de la mission', 'theme_tp'),
-      'section' => 'mission_section',
-      'type'    => 'textarea',
-  ));
-  
-  // Nouvelle section pour les contacts
-  $wp_customize->add_section('contact_section', array(
-    'title'    => __('Informations de contact', 'theme_tp'),
-    'priority' => 35,
-  ));
-  
-  // Mission
-  $wp_customize->add_setting('mission_text', array(
-    'default'           => __('Notre mission est de...', 'theme_tp'),
-    'sanitize_callback' => 'sanitize_text_field',
-  ));
-  $wp_customize->add_control('mission_text', array(
-    'label'   => __('Mission', 'theme_tp'),
-    'section' => 'contact_section',
-    'type'    => 'textarea',
-  ));
-  
-  // Adresse
-  $wp_customize->add_setting('contact_address', array(
-    'default'           => __('5800 Sherbrooke-est - Montréal (Québec) H1X 2A2', 'theme_tp'),
-    'sanitize_callback' => 'sanitize_text_field',
-  ));
-  $wp_customize->add_control('contact_address', array(
-    'label'   => __('Adresse', 'theme_tp'),
-    'section' => 'contact_section',
-    'type'    => 'text',
-  ));
-  
-  // Téléphone
-  $wp_customize->add_setting('contact_phone', array(
-    'default'           => __('514-254-7131', 'theme_tp'),
-    'sanitize_callback' => 'sanitize_text_field',
-  ));
-  $wp_customize->add_control('contact_phone', array(
-    'label'   => __('Téléphone', 'theme_tp'),
-    'section' => 'contact_section',
-    'type'    => 'text',
-  ));
-  }
+// Mission
+$wp_customize->add_setting('mission_text', array(
+  'default'           => __('Notre mission est de...', 'theme_tp'),
+  'sanitize_callback' => 'sanitize_text_field',
+));
+$wp_customize->add_control('mission_text', array(
+  'label'   => __('Mission', 'theme_tp'),
+  'section' => 'contact_section',
+  'type'    => 'textarea',
+));
+// Adresse
+$wp_customize->add_setting('contact_address', array(
+  'default'           => __('5800 Sherbrooke-est - Montréal (Québec) H1X 2A2', 'theme_tp'),
+  'sanitize_callback' => 'sanitize_text_field',
+));
+$wp_customize->add_control('contact_address', array(
+  'label'   => __('Adresse', 'theme_tp'),
+  'section' => 'contact_section',
+  'type'    => 'text',
+));
 
-// Ajout de l'action dans le hook `customize_register`
+// Téléphone
+$wp_customize->add_setting('contact_phone', array(
+  'default'           => __('514-254-7131', 'theme_tp'),
+  'sanitize_callback' => 'sanitize_text_field',
+));
+$wp_customize->add_control('contact_phone', array(
+  'label'   => __('Téléphone', 'theme_tp'),
+  'section' => 'contact_section',
+  'type'    => 'text',
+));
+
+
+
+//////////////////////////////// ajout de la données image en background
+
+for ($k = 0; $k<3 ; $k++) {
+$wp_customize->add_setting('hero_background_' . $k, array(
+  'default' => '',
+  'sanitize_callback' => 'esc_url_raw',
+));
+///////////////////////////////// ajout du contrôle de la donnée
+$wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'hero_background_' . $k, array(
+  'label' => __('Image en arrière plan ' . ($k+1) , 'theme_tp'),
+  'section' => 'hero_section',
+)));
+}
+}
+
 add_action('customize_register', 'theme_tp_customize_register');
-
-// Couleur principale
-function theme_tp_customize_options($wp_customize) {
-  // Ajout de la couleur principale dans la section "contact_section"
-  $wp_customize->add_setting('main_color', array(
-      'default'           => '#ff0000', // Valeur par défaut : rouge
-      'sanitize_callback' => 'sanitize_hex_color',
-  ));
-  $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'main_color', array(
-      'label'   => __('Couleur principale', 'theme_tp'),
-      'section' => 'section_404',
-  )));
-}
-
-// Ajout de l'action dans le hook `customize_register`
-add_action('customize_register', 'theme_tp_customize_options');
-
-
-
-function mytheme_customizer_css() {
-  ?>
-  <style type="text/css">
-      .texte_erreur {
-          color: <?php echo get_theme_mod('main_color', '#000000'); ?>;
-      }
-  </style>
-  <?php
-}
-add_action('wp_head', 'mytheme_customizer_css');

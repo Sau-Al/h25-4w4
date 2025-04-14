@@ -1,21 +1,35 @@
-<!-- Secion HERO -->
-<?php 
-$hero_auteur = get_theme_mod('hero_auteur', 'Default Title');
-$hero_background = get_theme_mod('hero_background', ''); 
-$contact_address = get_theme_mod('contact_address', '5800 Sherbrooke-est - Montréal (Québec) H1X 2A2');
-$contact_phone = get_theme_mod('contact_phone', '514-254-7131');
-?>
-
-<section class="hero" style="background-image: url(<?php echo esc_url($hero_background); ?>);">
-    <div class="hero__contenu global">
-        <h1 class="hero__titre"><?php bloginfo('name'); ?></h1>
-        <p class="hero__description"><?php bloginfo('description'); ?></p>
-        <p class="hero__courriel">
-            <a href="mailto:<?php bloginfo('admin_email'); ?>"><?php bloginfo('admin_email'); ?></a>
-        </p>
-        <p class="hero__adresse"><?php echo esc_html($contact_address); ?></p>
-        <p class="hero__numero"><?php echo esc_html($contact_phone); ?></p>
-        <p class="hero_auteur">Auteur: <?php echo esc_html($hero_auteur); ?></p>
-        <?php get_template_part('gabarits/sociaux'); ?>
-    </div>
-</section>
+<?php  
+    $hero_auteur = get_theme_mod('hero_auteur', 'Default Title');
+    for ($k=0; $k<3; $k++){
+    $hero_background[$k] = get_theme_mod('hero_background_'. $k, '');
+    }
+     ?>
+    <section class="hero">
+        <div class="hero__carrousel" style="background-image: url(<?php echo $hero_background[0] ?>)"></div>
+        <div class="hero__carrousel" style="background-image: url(<?php echo $hero_background[1] ?>)"></div>
+        <div class="hero__carrousel" style="background-image: url(<?php echo $hero_background[2] ?>)"></div>
+        <div class="hero__radio">
+            <input class="hero__radio__input" data-id_radio="0" type="radio" name="caroroussel">
+            <input class="hero__radio__input" data-id_radio="1" type="radio" name="caroroussel">
+            <input class="hero__radio__input" data-id_radio="2" type="radio" name="caroroussel">
+        </div>
+        <div class="hero__contenu global">
+            <h1 class="hero__titre"><?php bloginfo('name'); ?></h1>
+            <p class="hero__description">
+            <?php bloginfo('description'); ?>
+            </p>
+            <p class="hero__courriel">
+            <?php bloginfo('admin_email'); ?>
+            </p>
+            <p class="hero__adresse">
+                5800 Sherbrooke-est - Montréal (Québec) H1X 2A2
+            </p>
+            <p class="hero__auteur">Auteur : <?php  echo $hero_auteur ?></p>
+            <div class="hero__icone">
+                <img src="https://s2.svgbox.net/social.svg?ic=facebook&color=000000" width="20" height="20">
+                <img src="https://s2.svgbox.net/social.svg?ic=linkedin&color=000000" width="20" height="20">
+                <img src="https://s2.svgbox.net/social.svg?ic=stackoverflow&color=000000" width="20" height="20">
+                <img src="https://s2.svgbox.net/social.svg?ic=snapchat&color=000000" width="20" height="20">
+            </div>
+        </div>
+    </section>
