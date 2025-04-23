@@ -1,4 +1,5 @@
 <?php
+    genere_vague();
     $mission_text = get_theme_mod('mission_text', 'Notre mission est de...');
     $contact_address = get_theme_mod('contact_address', '5800 Sherbrooke-est - Montréal (Québec) H1X 2A2');
     $contact_phone = get_theme_mod('contact_phone', '514-254-7131'); 
