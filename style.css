@@ -142,6 +142,10 @@ h6 {
 .hero__contenu {
   z-index: 9;
 }
+.hero__contenu.animated {
+  animation: fadeInUp 0.8s ease;
+  animation-fill-mode: both;
+}
 
 .hero__radio {
   position: absolute;
@@ -232,6 +236,16 @@ h6 {
   top: -5vh;
 }
 
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 .form__principale {
   display: flex;
   justify-content: center;
