@@ -63,11 +63,47 @@ function categorie_par_destination($cat_a_retirer) {
 }
 
 
-// Génère une ou plusieurs vagues svg
-function genere_vague(){ ?>
-    <svg style="top:200px" class="vague" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-        <path fill="#0099ff" fill-opacity="1" d="M0,288L48,266.7C96,245,192,203,288,181.3C384,160,480,160,576,170.7C672,181,768,203,864,202.7C960,203,1056,181,1152,197.3C1248,213,1344,267,1392,293.3L1440,320L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+// Génère une ou plusieurs vagues SVG animées
+function genere_vague() {
+    // Génère une forme de vague selon amplitude, fréquence et décalage
+    function generate_wave_path($amplitude, $frequency, $offset = 0) {
+        $points = [];
+        $width = 1440;
+        $height = 320;
+        $step = 60; // Plus petit = animation plus fluide
+
+        for ($x = 0; $x <= $width; $x += $step) {
+            // Calcul de l'ordonnée selon une sinusoïde
+            $y = $amplitude * sin(deg2rad(($x + $offset) * $frequency)) + 200;
+            $points[] = "$x,$y";
+        }
+
+        // Fermeture du chemin vers le bas du SVG
+        $points[] = "$width,$height";
+        $points[] = "0,$height";
+        $points[] = "0," . explode(',', $points[0])[1]; // refermer avec le premier y
+
+        return "M" . implode(" L", $points) . " Z";
+    }
+
+    // Création de plusieurs états de vague pour l'animation
+    $wave1 = generate_wave_path(40, 0.3, 0);
+    $wave2 = generate_wave_path(40, 0.3, 45);
+    $wave3 = generate_wave_path(40, 0.3, 90);
+    $wave4 = generate_wave_path(40, 0.3, 135);
+    ?>
+
+    <svg style="position: relative; display: block; width: 100%; height: 320px;" class="vague" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+        <path fill="#0099ff" fill-opacity="1">
+            <animate attributeName="d" dur="5s" repeatCount="indefinite"
+                values="<?php echo $wave1; ?>;
+                        <?php echo $wave2; ?>;
+                        <?php echo $wave3; ?>;
+                        <?php echo $wave4; ?>;
+                        <?php echo $wave1; ?>" />
+        </path>
     </svg>
+
 <?php
 }
-?>
+

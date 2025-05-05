@@ -963,10 +963,24 @@ article:nth-child(3) {
   border: 1px solid #2980b9; /* bordure bleu foncé */
 }
 
-.vague {
+.vague--animee {
+  animation: bougeVague 10s linear infinite;
   position: relative;
+  width: 100%;
+  height: auto;
 }
 
+@keyframes bougeVague {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-20px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
 .entete {
   display: flex;
   justify-content: space-between;
