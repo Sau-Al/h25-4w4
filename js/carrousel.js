@@ -13,15 +13,23 @@
     // Fonction pour afficher uniquement le slide actif
     function afficherSlide(index) {
         slides.forEach((slide, i) => {
-            slide.style.display = (i === index) ? 'block' : 'none';
+            if (i === index) {
+                slide.style.display = 'block';
+                slide.classList.remove('fade'); // retire l’ancienne animation si elle existe
+                void slide.offsetWidth;         // force le reflow
+                slide.classList.add('fade');    // ajoute la classe pour jouer l'animation
+            } else {
+                slide.style.display = 'none';
+                slide.classList.remove('fade');
+            }
             radios[i].checked = (i === index); // synchronise le bouton radio
         });
         currentIndex = index;
-
-        // 🔁 Animation du contenu texte
+    
+        // Animation du texte
         if (contenu) {
             contenu.classList.remove('animated');
-            void contenu.offsetWidth; // force le reflow pour relancer l'animation
+            void contenu.offsetWidth;
             contenu.classList.add('animated');
         }
     }

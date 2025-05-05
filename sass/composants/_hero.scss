@@ -11,7 +11,6 @@
        width : 100%;
        background-position: center;
        z-index : -1;
-
     }
     &__contenu {
         z-index : 9;
@@ -19,10 +18,13 @@
         animation: fadeInUp 0.8s ease;
         animation-fill-mode: both;
     }
+} 
 }
-    
-    
-}
+
+.hero__carrousel.fade {
+    animation: fadeZoomIn 0.5s ease-in-out;
+    animation-fill-mode: both;
+  }
 
 .hero__radio{
     position: absolute;
@@ -124,6 +126,18 @@
         transform: translateY(0);
     }
 }
+
+// Animation pour les images du carrousel
+@keyframes fadeZoomIn {
+    0% {
+      opacity: 0;
+      transform: scale(1.05);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
 
 .form__principale {
     display: flex;
