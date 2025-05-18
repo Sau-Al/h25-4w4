@@ -43,15 +43,7 @@
     <div class="footer__bottom">
         <!-- Réseaux sociaux -->
         <div class="footer__social">
-            <a href="#" class="social-icon facebook">
-                <img src="https://s2.svgbox.net/materialui.svg?ic=facebook" alt="Facebook">
-            </a>
-            <a href="#" class="social-icon linkedin">
-                <img src="https://s2.svgbox.net/social.svg?ic=linkedin" alt="LinkedIn">
-            </a>
-            <a href="#" class="social-icon discord">
-                <img src="https://s2.svgbox.net/social.svg?ic=discord" alt="Discord">
-            </a>
+            <?php afficher_icones_sociaux(); ?>
         </div>
 
         <!-- Menu footer -->

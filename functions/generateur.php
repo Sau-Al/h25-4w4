@@ -62,6 +62,32 @@ function categorie_par_destination($cat_a_retirer) {
     }
 }
 
+// Genere les emoticons des reseaux sociaux
+function afficher_icones_sociaux() {
+    $reseaux = [
+        'facebook' => 'https://s2.svgbox.net/materialui.svg?ic=facebook',
+        'linkedin' => 'https://s2.svgbox.net/social.svg?ic=linkedin',
+        'discord' => 'https://s2.svgbox.net/social.svg?ic=discord'
+    ];
+
+    $liens = [
+        'facebook' => '#',
+        'linkedin' => '#',
+        'discord' => '#'
+    ];
+
+    echo '<div class="footer__social">';
+    foreach ($reseaux as $nom => $url) {
+        $href = isset($liens[$nom]) ? esc_url($liens[$nom]) : '#';
+        $alt = ucfirst($nom);
+        echo '<a href="' . $href . '" class="social-icon ' . esc_attr($nom) . '">';
+        echo '<img src="' . esc_url($url) . '" alt="' . esc_attr($alt) . '">';
+        echo '</a>';
+    }
+    echo '</div>';
+}
+
+
 
 // Génère une ou plusieurs vagues SVG animées
 function genere_vague() {
