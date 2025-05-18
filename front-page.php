@@ -70,8 +70,8 @@ $mission_text = get_theme_mod('mission_text', 'Notre mission est de...');?>
 <!-- Section des destinations, avec la fonction de catégories -->
 <section class="destination">
     <h2 class="destination__titre">Explorez nos destinations</h2>
-    <!-- Appel de la fonction pour afficher les catégories, en excluant "Populaire" uniquement sur la page d'accueil -->
-    <?php categorie_par_destination('Populaire'); ?>  
+    <!-- Nouvelle fonction pour afficher toutes les sous-catégories de "destination" -->
+    <?php categories_liste('destination'); ?>
     <div class="destination__list"></div>
 </section>
 
