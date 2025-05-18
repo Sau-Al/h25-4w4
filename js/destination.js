@@ -89,26 +89,33 @@
             })
         */
            
-        function fetchArticles(categoryId) {
-            const apiUrl = `${domaine}/wp-json/wp/v2/posts?categories=${categoryId}`;
-            fetch(apiUrl)
-                .then(response => response.json())
-                .then(data => {
-                    const destinationList = document.querySelector('.destination__list');
-                    destinationList.innerHTML = ''; // Réinitialiser la liste des destinations
-     
-                    data.forEach(article => {
-                        const articleElement = document.createElement('div');
-                        articleElement.innerHTML = `
-                            <h3>${article.title.rendered}</h3>
-                            <p>${article.excerpt.rendered}</p>
-                            <a href="${article.link}">Lire plus</a>
-                        `;
-                        destinationList.appendChild(articleElement);
-                    });
-                })
-                .catch(error => console.error('Erreur lors de la récupération des articles:', error));
-        }
+            function fetchArticles(categoryId) {
+                const apiUrl = `${domaine}/wp-json/wp/v2/posts?categories=${categoryId}`;
+                fetch(apiUrl)
+                    .then(response => response.json())
+                    .then(data => {
+                        const destinationList = document.querySelector('.destination__list');
+                        destinationList.innerHTML = '';
+        
+                        data.forEach((article, index) => {
+                            const articleElement = document.createElement('div');
+                            articleElement.classList.add('fade-in');
+        
+                            // Optionnel : animation décalée (staggered)
+                            articleElement.style.animationDelay = `${index * 100}ms`;
+        
+                            articleElement.innerHTML = `
+                                <div class="article">
+                                    <h3>${article.title.rendered}</h3>
+                                    <p>${article.excerpt.rendered}</p>
+                                    <a href="${article.link}">Lire plus</a>
+                                </div>
+                            `;
+                            destinationList.appendChild(articleElement);
+                        });
+                    })
+                    .catch(error => console.error('Erreur lors de la récupération des articles:', error));
+            }
      
         // Charger les articles au chargement de la page
         fetchArticles(categoryId);

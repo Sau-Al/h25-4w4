@@ -154,6 +154,34 @@ article {
     }
 }
 
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInMove 0.5s ease forwards;
+}
+
+@keyframes fadeInMove {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Bouton actif */
+.categorie__ul__li.active {
+    font-weight: bold;
+    color: #0066cc;
+}
+
+/* Apparence des articles */
+.destination__list .article {
+    padding: 1rem;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 1rem;
+    background: #f9f9f9;
+    border-radius: 8px;
+}
+
 /* ==== Responsive Design ==== */
 @media screen and (max-width: 768px) {
     .titre__category {
