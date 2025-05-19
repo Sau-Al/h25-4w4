@@ -62,32 +62,29 @@ function categorie_par_destination($cat_a_retirer) {
     }
 }
 
-// Genere les emoticons des reseaux sociaux
-function afficher_icones_sociaux() {
-    $reseaux = [
-        'facebook' => 'https://s2.svgbox.net/materialui.svg?ic=facebook',
-        'linkedin' => 'https://s2.svgbox.net/social.svg?ic=linkedin',
-        'discord' => 'https://s2.svgbox.net/social.svg?ic=discord'
-    ];
 
-    $liens = [
-        'facebook' => '#',
-        'linkedin' => '#',
-        'discord' => '#'
-    ];
+// Affiche les icônes des réseaux sociaux dans le footer
+if (!function_exists('afficher_icones_sociaux')) {
+    function afficher_icones_sociaux() {
+        $reseaux = [
+            'facebook' => 'https://s2.svgbox.net/materialui.svg?ic=facebook',
+            'linkedin' => 'https://s2.svgbox.net/social.svg?ic=linkedin',
+            'discord'  => 'https://s2.svgbox.net/social.svg?ic=discord',
+            'github'   => 'https://s2.svgbox.net/social.svg?ic=github',
+        ];
 
-    echo '<div class="footer__social">';
-    foreach ($reseaux as $nom => $url) {
-        $href = isset($liens[$nom]) ? esc_url($liens[$nom]) : '#';
-        $alt = ucfirst($nom);
-        echo '<a href="' . $href . '" class="social-icon ' . esc_attr($nom) . '">';
-        echo '<img src="' . esc_url($url) . '" alt="' . esc_attr($alt) . '">';
-        echo '</a>';
+        echo '<div class="footer__social">';
+        foreach ($reseaux as $nom => $icone_url) {
+            $lien = get_theme_mod("lien_$nom");
+            if (!empty($lien)) {
+                echo '<a href="' . esc_url($lien) . '" class="social-icon ' . esc_attr($nom) . '" target="_blank" rel="noopener noreferrer">';
+                echo '<img src="' . esc_url($icone_url) . '" alt="' . esc_attr(ucfirst($nom)) . '">';
+                echo '</a>';
+            }
+        }
+        echo '</div>';
     }
-    echo '</div>';
 }
-
-
 
 // Génère une ou plusieurs vagues SVG animées
 function genere_vague() {

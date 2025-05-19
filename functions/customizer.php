@@ -152,6 +152,28 @@ $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'hero_b
   'section' => 'hero_section',
 )));
 }
+
+// SECTION FOOTER SOCIAL
+$wp_customize->add_section('footer_social_section', array(
+  'title' => __('Réseaux sociaux - Footer', 'theme_tp'),
+  'priority' => 40,
+));
+
+$reseaux = ['facebook', 'linkedin', 'discord', 'github'];
+
+foreach ($reseaux as $reseau) {
+  $wp_customize->add_setting("lien_$reseau", array(
+      'default' => '',
+      'sanitize_callback' => 'esc_url_raw',
+  ));
+  $wp_customize->add_control("lien_$reseau", array(
+      'label' => sprintf(__('Lien %s', 'theme_tp'), ucfirst($reseau)),
+      'section' => 'footer_social_section',
+      'type' => 'url',
+      'priority' => 10,
+  ));
+}
 }
 
 add_action('customize_register', 'theme_tp_customize_register');
+

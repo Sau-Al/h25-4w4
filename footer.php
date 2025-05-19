@@ -43,7 +43,7 @@
     <div class="footer__bottom">
         <!-- Réseaux sociaux -->
         <div class="footer__social">
-            <?php afficher_icones_sociaux(); ?>
+        <?php afficher_icones_sociaux(); ?>
         </div>
 
         <!-- Menu footer -->
