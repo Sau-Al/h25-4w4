@@ -1,4 +1,4 @@
-# TP1
+# TP2
 ## Créer un site WordPress pour un club de voyage avec l'aide du prototype du serveur local (suite de l'exercice #1)
 ### Auteur: Alicia Sau
 ### Déploiement du site sur WHC
