@@ -1,125 +1,79 @@
 /**
- *  Script js permettant d'extraite des destinations de voyage (VERSION EN CLASSE)
+ * Script JS permettant d'extraire des destinations de voyage (VERSION EN CLASSE + corrigée)
  */
-// (function(){
-//     console.log("destination.js")
-//     const categoryId = 3; // Remplacez par l'ID de la catégorie souhaitée
-//     const domaine = window.location.href
-//     const apiUrl = `${domaine}wp-json/wp/v2/posts?categories=${categoryId}`;
-//     console.log(apiUrl)
-//     parcourir_bouton()
 
-// function parcourir_bouton(){
-//     const categorie__ul__li = document.querySelectorAll(".categorie__ul__li")
-//     console.log("categorie__ul__li.length = ", categorie__ul__li.length)
-//     categorie__ul__li.forEach(elm => {
-//         elm.addEventListener('mousedown', function(){
-//             console.log(elm.tagName)
-//             console.log("elm.dataset.category_id = " , elm.dataset.category_id)
-//         })
-//     })
+(function () {
+    console.log("destination.js");
 
-// }
+    const defaultCategoryId = 3; // ID par défaut de la catégorie
+    const domaine = document.querySelector('base')?.href || '/';
 
+    // Charger les articles au démarrage
+    fetchArticles(defaultCategoryId);
+    initCategoryButtons();
 
-//     fetch(apiUrl)
-//         .then(response => response.json())
-//         .then(data => {
-//             const destinationList = document.querySelector('.destination__list');
-//             data.forEach(article => {
-//                 const articleElement = document.createElement('div');
-//                 console.log(article.title.rendered)
-//                 // <div>${article.excerpt.rendered}</div>
-//                 articleElement.innerHTML = `
-//                     <h3>${article.title.rendered}</h3>
-//                     <p>${article.excerpt.rendered}</p>
-//                     <a href="${article.link}">Lire plus</a>
-//                 `;
-//                 destinationList .appendChild(articleElement);
-//             });
-//         })
-//         .catch(error => console.error('Erreur lors de la récupération des articles:', error));
+    // Fonction pour récupérer les articles selon une catégorie
+    function fetchArticles(categoryId) {
+        const apiUrl = `${domaine}wp-json/wp/v2/posts?categories=${encodeURIComponent(categoryId)}`;
+        console.log("Fetching from API:", apiUrl);
 
-//         // 
-//     })()
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                const destinationList = document.querySelector('.destination__list');
+                if (!destinationList) return;
 
-    (function(){
-        console.log("destination.js");
-        const categoryId = 3; // Remplacez par l'ID de la catégorie souhaitée
-        const domaine = window.location.href;
-        const apiUrl = `${domaine}/wp-json/wp/v2/posts?categories=${categoryId}`;
-        console.log(apiUrl);
-     
-        function parcourir_bouton(){
-            const categorie__ul__li = document.querySelectorAll(".categorie__ul__li");
-           
-            categorie__ul__li.forEach(elm => {
-                elm.addEventListener('mousedown', (e) => {
-                    // Empêche l'événement de propagation si nécessaire
-                    e.preventDefault();
+                destinationList.innerHTML = ''; // Réinitialise la liste
 
-                     // Retirer la classe 'active' de tous les boutons
-                categorie__ul__li.forEach(button => {
-                    button.classList.remove('active');
+                data.forEach((article, index) => {
+                    const articleElement = document.createElement('div');
+                    articleElement.classList.add('fade-in'); // Pour l'animation CSS
+                    articleElement.style.animationDelay = `${index * 100}ms`;
+
+                    articleElement.innerHTML = `
+                        <div class="article">
+                            <h3>${article.title.rendered}</h3>
+                            <p>${article.excerpt.rendered}</p>
+                            <a href="${article.link}">Lire plus</a>
+                        </div>
+                    `;
+
+                    destinationList.appendChild(articleElement);
                 });
-
-                // Ajouter la classe 'active' au bouton cliqué
-                e.target.classList.add('active');
-     
-                    // Logique de filtrage selon la catégorie ou une action spécifique
-                    const categorieId = e.target.dataset.categoryId;
-                    console.log(`Catégorie cliquée: ${categorieId}`);
-                   
-                    // Pour l'exemple, je recharge la liste des articles selon la catégorie
-                    fetchArticles(categorieId);
-                });
+            })
+            .catch(error => {
+                console.error('Erreur lors de la récupération des articles :', error);
             });
+    }
+
+    // Fonction pour gérer les clics sur les boutons de catégories
+    function initCategoryButtons() {
+        const buttons = document.querySelectorAll(".categorie__ul__li");
+
+        if (buttons.length === 0) {
+            console.warn("Aucun bouton de catégorie trouvé.");
+            return;
         }
-     
-        /*
-     
-        const categorie__ul__li = document.querySelectorAll(".categorie__ul__li");
-        console.log("categorie__ul__li.length = ",categorie__ul__li.length);
-        categorie__ul__li.forEach(elm => {
-            elm.addEventListener('mousedown',function(){
-            console.log(elm.tagName)
-            console.log("elm.dataset.categorie_id=", elm.dataset.categorie_id)
-            })
-           
-            })
-        */
-           
-            function fetchArticles(categoryId) {
-                const apiUrl = `${domaine}/wp-json/wp/v2/posts?categories=${categoryId}`;
-                fetch(apiUrl)
-                    .then(response => response.json())
-                    .then(data => {
-                        const destinationList = document.querySelector('.destination__list');
-                        destinationList.innerHTML = '';
-        
-                        data.forEach((article, index) => {
-                            const articleElement = document.createElement('div');
-                            articleElement.classList.add('fade-in');
-        
-                            // Optionnel : animation décalée (staggered)
-                            articleElement.style.animationDelay = `${index * 100}ms`;
-        
-                            articleElement.innerHTML = `
-                                <div class="article">
-                                    <h3>${article.title.rendered}</h3>
-                                    <p>${article.excerpt.rendered}</p>
-                                    <a href="${article.link}">Lire plus</a>
-                                </div>
-                            `;
-                            destinationList.appendChild(articleElement);
-                        });
-                    })
-                    .catch(error => console.error('Erreur lors de la récupération des articles:', error));
-            }
-     
-        // Charger les articles au chargement de la page
-        fetchArticles(categoryId);
-     
-        // Activer les événements de clic sur les boutons ou liens de catégories
-        parcourir_bouton();
-    })();
+
+        buttons.forEach(button => {
+            button.addEventListener('mousedown', (e) => {
+                e.preventDefault();
+
+                // Gestion des classes actives
+                buttons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                // Récupérer l'ID de catégorie depuis data-category-id
+                const categoryId = button.dataset.categoryId;
+                if (!categoryId) {
+                    console.warn("Aucun ID de catégorie trouvé pour ce bouton.");
+                    return;
+                }
+
+                console.log(`Catégorie cliquée : ${categoryId}`);
+                fetchArticles(categoryId);
+            });
+        });
+    }
+
+})();
