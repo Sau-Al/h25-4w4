@@ -670,6 +670,49 @@ article:nth-child(3) {
     font-size: 0.9rem;
   }
 }
+.destination__list > div {
+  border-bottom: 1px solid #ddd;
+}
+
+.details p, .details a {
+  color: #444;
+  padding: 3rem;
+}
+
+.details a {
+  display: inline-block;
+  margin-top: 5px;
+  color: #0066cc;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.details a:hover {
+  text-decoration: underline;
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 0.5s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+.destination__list div > div {
+  /* Pour aligner titre + ... proprement */
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.destination__list div > div span {
+  color: #666;
+  font-weight: bold;
+}
+
 .logo__img {
   width: 100px;
 }
