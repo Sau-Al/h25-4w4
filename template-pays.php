@@ -71,7 +71,10 @@ genere_vague();
 </div>
 
 <!-- Zone d'affichage des destinations -->
-<div class="destination__list"></div>
+ <div class="liste">
+    <div class="destination__list"></div>
+ </div>
+
 
 <!-- Seconde vague décorative (arrière-plan) -->
 <div class="wave-separator" style="width: 100%; overflow: hidden; line-height: 0;">

@@ -1103,6 +1103,7 @@ article:nth-child(3) {
   flex-wrap: wrap;
   gap: 10px;
   margin-bottom: 20px;
+  padding: 2rem;
 }
 
 .country-btn {
@@ -1133,6 +1134,11 @@ article:nth-child(3) {
   box-shadow: 0 0 8px 2px rgba(0, 64, 128, 0.7);
   transform: scale(1.1);
   font-weight: bold;
+}
+
+.liste {
+  display: flex;
+  justify-content: center;
 }
 
 .vague--animee {
