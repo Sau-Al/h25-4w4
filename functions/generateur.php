@@ -86,47 +86,66 @@ if (!function_exists('afficher_icones_sociaux')) {
     }
 }
 
-// Génère une ou plusieurs vagues SVG animées
-function genere_vague() {
-    // Génère une forme de vague selon amplitude, fréquence et décalage
+// Vague d'arrière-plan
+// Affiche une vague d'arrière-plan animée
+// Déclare une seule fois la fonction generate_wave_path
+if (!function_exists('generate_wave_path')) {
     function generate_wave_path($amplitude, $frequency, $offset = 0) {
         $points = [];
         $width = 1440;
         $height = 320;
-        $step = 60; // Plus petit = animation plus fluide
+        $step = 60; // plus petit = plus fluide
 
         for ($x = 0; $x <= $width; $x += $step) {
-            // Calcul de l'ordonnée selon une sinusoïde
             $y = $amplitude * sin(deg2rad(($x + $offset) * $frequency)) + 200;
             $points[] = "$x,$y";
         }
 
-        // Fermeture du chemin vers le bas du SVG
         $points[] = "$width,$height";
         $points[] = "0,$height";
-        $points[] = "0," . explode(',', $points[0])[1]; // refermer avec le premier y
+        $points[] = "0," . explode(',', $points[0])[1];
 
         return "M" . implode(" L", $points) . " Z";
     }
-
-    // Création de plusieurs états de vague pour l'animation
-    $wave1 = generate_wave_path(40, 0.3, 0);
-    $wave2 = generate_wave_path(40, 0.3, 45);
-    $wave3 = generate_wave_path(40, 0.3, 90);
-    $wave4 = generate_wave_path(40, 0.3, 135);
-    ?>
-
-    <svg style="position: relative; display: block; width: 100%; height: 320px;" class="vague" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
-        <path fill="#0099ff" fill-opacity="1">
-            <animate attributeName="d" dur="5s" repeatCount="indefinite"
-                values="<?php echo $wave1; ?>;
-                        <?php echo $wave2; ?>;
-                        <?php echo $wave3; ?>;
-                        <?php echo $wave4; ?>;
-                        <?php echo $wave1; ?>" />
-        </path>
-    </svg>
-
-<?php
 }
+
+// Ta fonction principale
+function genere_vague() {
+    $wave1_1 = generate_wave_path(40, 0.3, 0);
+    $wave1_2 = generate_wave_path(40, 0.3, 45);
+    $wave1_3 = generate_wave_path(40, 0.3, 90);
+    $wave1_4 = generate_wave_path(40, 0.3, 135);
+
+    $wave2_1 = generate_wave_path(30, 0.28, 20);
+    $wave2_2 = generate_wave_path(30, 0.28, 65);
+    $wave2_3 = generate_wave_path(30, 0.28, 110);
+    $wave2_4 = generate_wave_path(30, 0.28, 155);
+
+    ?>
+    <div class="vague-container">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+            <path fill="#66b3ff" fill-opacity="0.4">
+                <animate attributeName="d" dur="6s" repeatCount="indefinite"
+                    values="<?php echo $wave2_1; ?>;
+                            <?php echo $wave2_2; ?>;
+                            <?php echo $wave2_3; ?>;
+                            <?php echo $wave2_4; ?>;
+                            <?php echo $wave2_1; ?>" />
+            </path>
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none" class="vague">
+            <path fill="#0099ff" fill-opacity="1">
+                <animate attributeName="d" dur="5s" repeatCount="indefinite"
+                    values="<?php echo $wave1_1; ?>;
+                            <?php echo $wave1_2; ?>;
+                            <?php echo $wave1_3; ?>;
+                            <?php echo $wave1_4; ?>;
+                            <?php echo $wave1_1; ?>" />
+            </path>
+        </svg>
+    </div>
+    <?php
+}
+
+
 

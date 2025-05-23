@@ -1150,8 +1150,64 @@ article:nth-child(3) {
   background-color: #05283C;
 }
 
+.galerie__photos {
+  background: #fafafa;
+}
+.galerie__photos .photos__conteneur {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  justify-content: center;
+  align-items: stretch;
+}
+.galerie__photos .photo__item {
+  background: white;
+  border-radius: 1rem;
+  padding: 1rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.galerie__photos .photo__item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+.galerie__photos .photo__item .photo__gallery {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.galerie__photos .photo__item img {
+  width: 25%;
+  height: auto;
+  border-radius: 0.5rem;
+  object-fit: cover;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.galerie__photos .photo__item img:hover {
+  transform: scale(1.03);
+  opacity: 0.95;
+}
+
 .global {
   padding: 10vh 2vw;
+}
+
+.vague-container {
+  position: relative;
+  width: 100%;
+  height: 320px; /* même hauteur que les SVG */
+  overflow: hidden;
+}
+
+.vague-container svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 320px;
+  display: block;
 }
 
 /* Style général du footer */

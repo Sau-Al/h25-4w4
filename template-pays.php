@@ -13,6 +13,46 @@ get_header();
     de modernité, ou de rencontres culturelles authentiques, 
     il y a un pays fait pour vous.</p>
 
+<!-- Galerie Wordpress -->
+<section class="galerie__photos">
+    <div class="photos__conteneur">
+        <?php
+        $photos_query = new WP_Query([
+            'category_name' => 'photos',
+            'posts_per_page' => -1
+        ]);
+
+        if ($photos_query->have_posts()) :
+            while ($photos_query->have_posts()) : $photos_query->the_post();
+                // Récupérer toutes les images insérées dans le contenu de l’article
+                $content = apply_filters('the_content', get_the_content());
+                // Extraire les balises <img> uniquement
+                preg_match_all('/<img[^>]+>/i', $content, $matches);
+                if (!empty($matches[0])) :
+        ?>
+            <article class="photo__item">
+                <div class="photo__gallery">
+                    <?php foreach ($matches[0] as $img_tag) {
+                        echo $img_tag;
+                    } ?>
+                </div>
+            </article>
+            <?php
+                endif;
+            endwhile;
+            wp_reset_postdata();
+        else :
+            echo "<p>Aucune photo trouvée pour le moment.</p>";
+        endif;
+        ?>
+    </div>
+</section>
+
+<?php
+// Appel de la vague animée (la deuxième vague + la première en avant-plan)
+genere_vague();
+?>
+
 <!-- Boutons des pays -->
 <div class="destination__categories">
     <?php
@@ -32,5 +72,12 @@ get_header();
 
 <!-- Zone d'affichage des destinations -->
 <div class="destination__list"></div>
+
+<!-- Seconde vague décorative (arrière-plan) -->
+<div class="wave-separator" style="width: 100%; overflow: hidden; line-height: 0;">
+    <svg viewBox="0 0 1440 150" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="display: block; width: 100%; height: 150px;">
+        <path d="M0,96 C360,32 1080,160 1440,96 L1440,0 L0,0 Z" fill="#f0f4f8" />
+    </svg>
+</div>
 
 <?php get_footer(); ?>

@@ -1,3 +1,20 @@
 .global {
     padding: 10vh 2vw;
 }
+
+// Vague
+.vague-container {
+  position: relative;
+  width: 100%;
+  height: 320px; /* même hauteur que les SVG */
+  overflow: hidden;
+}
+
+.vague-container svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 320px;
+  display: block;
+}
