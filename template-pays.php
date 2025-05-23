@@ -13,30 +13,24 @@ get_header();
     de modernité, ou de rencontres culturelles authentiques, 
     il y a un pays fait pour vous.</p>
 
-<!-- Menu de pays -->
-<select id="countrySelector">
+<!-- Boutons des pays -->
+<div class="destination__categories">
     <?php
     $countries = ["France", "États-Unis", "Canada", "Argentine", "Chili", "Belgique", "Maroc", "Mexique", "Japon", "Italie", "Islande", "Chine", "Grèce", "Suisse"];
     foreach ($countries as $country) {
-        $slug = sanitize_title($country); // ex: États-Unis => etats-unis
-        echo "<option value='{$slug}'>$country</option>";
+        $slug = sanitize_title($country);
+        $category = get_category_by_slug($slug);
+        if ($category) {
+            echo "<button class='country-btn' data-category-id='{$category->term_id}'>{$country}</button>";
+        } else {
+            // Pas de catégorie => on met data-country pour recherche
+            echo "<button class='country-btn' data-category-id='0' data-country='{$country}'>{$country} (catégorie manquante)</button>";
+        }
     }
     ?>
-</select>
+</div>
 
-<!-- Bouton d'action -->
-<button id="loadDestinations">Afficher les destinations</button>
-
-<!-- Zone de contenu -->
-<div id="destinations"></div>
-
-<!-- Accordéon CSS -->
-<style>
-.accordion { cursor: pointer; padding: 10px; background: #f1f1f1; border: none; outline: none; transition: 0.3s; width: 100%; text-align: left; font-size: 1.1rem; }
-.accordion:hover { background-color: #ddd; }
-.panel { padding: 0 10px; display: none; background-color: white; overflow: hidden; border: 1px solid #ddd; margin-bottom: 10px; }
-</style>
-
-<script src="<?php echo get_template_directory_uri(); ?>/js/destination.js"></script>
+<!-- Zone d'affichage des destinations -->
+<div class="destination__list"></div>
 
 <?php get_footer(); ?>
