@@ -1019,11 +1019,77 @@ article:nth-child(3) {
   width: 75vw;
 }
 
+.section__pays {
+  padding: 40px 20px;
+  background-color: #f9fafb;
+}
+
+.titre__pays {
+  font-size: 2.8rem;
+  font-weight: 700;
+  text-align: center;
+  color: #1a202c;
+  margin-bottom: 20px;
+}
+
+.description__pays {
+  max-width: 800px;
+  margin: 0 auto 40px auto;
+  font-size: 1.1rem;
+  color: #4a5568;
+  text-align: center;
+}
+
+.destination__categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
 /* Style pour le bouton actif */
 .categorie__ul__li.active {
   background-color: #3498db; /* couleur de fond bleu pour le bouton actif */
   color: white; /* texte en blanc */
   border: 1px solid #2980b9; /* bordure bleu foncé */
+}
+
+.destination__categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.country-btn {
+  background-color: #0073e6;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  padding: 10px 16px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  user-select: none;
+}
+
+.country-btn:hover {
+  background-color: #005bb5;
+  transform: scale(1.05);
+}
+
+.country-btn:focus {
+  outline: 2px solid #005bb5;
+  outline-offset: 2px;
+}
+
+.country-btn.active {
+  background-color: #004080;
+  box-shadow: 0 0 8px 2px rgba(0, 64, 128, 0.7);
+  transform: scale(1.1);
+  font-weight: bold;
 }
 
 .vague--animee {
